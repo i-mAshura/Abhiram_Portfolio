@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import SplashScreen from "@/components/SplashScreen";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const firaCode = Fira_Code({ subsets: ["latin"], variable: "--font-fira-code" });
 
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
           {children}
         </ThemeProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
