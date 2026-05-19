@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 影子 // SHADOW_PROTOCOL
 
-## Getting Started
+**Personal Portfolio of K. Sai Abhiram**  
+🎓 *VIT-AP University*
 
-First, run the development server:
+A highly interactive, Cyber-Security & "Shadow Ninja" themed personal portfolio built with modern web technologies. This portfolio showcases my projects, skills, and experience bridging the gap between software development and offensive security.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Dark/Stealth Aesthetic:** Cyber-security "Shadow Protocol" theme with deep blacks, crimson accents, and Japanese Kanji motifs.
+- **Dynamic Animations:** Powered by Framer Motion, featuring a custom animated splash screen, smooth page transitions, and interactive components.
+- **Interactive Particle Background:** A responsive, moving particle network background highlighting the tech/cyber theme.
+- **Secure Contact Form:** Fully functional contact form integrated with the **Resend API** for reliable email delivery.
+- **Project Showcase:** A detailed "Classified Operations" grid showcasing tools and scripts in automation, AI (DSLM), and SIEM (Wazuh).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Styling:** Vanilla CSS Modules with custom CSS variables
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Email Delivery:** [Resend](https://resend.com/)
 
-## Learn More
+## ⚙️ Running Locally
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/i-mAshura/Abhiram_Portfolio.git
+   cd portfolio-site
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Set up environment variables**  
+   Create a `.env.local` file in the root directory and add your Resend API key:
+   ```env
+   RESEND_API_KEY="your_resend_api_key_here"
+   ```
 
-## Deploy on Vercel
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 👤 About Me
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**K. Sai Abhiram**  
+*Ethical Hacker & Cyber Security Specialist*  
+Bridging the gap between software development and offensive security. I build secure systems and break them to make them stronger. Specialized in SOC operations, SIEM monitoring, automotive security research, and AI/Automation.
+
+---
+*Stay stealthy.* 🥷
