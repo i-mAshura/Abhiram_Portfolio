@@ -1,0 +1,359 @@
+.heroSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle Japanese diagonal lines bg */
+.heroSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 60px,
+      rgba(0, 194, 212, 0.025) 60px,
+      rgba(0, 194, 212, 0.025) 61px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.content {
+  flex: 1;
+  max-width: 600px;
+  z-index: 2;
+}
+
+.greeting {
+  font-family: var(--font-fira-code);
+  color: var(--accent-primary);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  display: inline-block;
+  opacity: 0.85;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-fira-code);
+  flex-wrap: wrap;
+}
+
+.icon {
+  color: var(--accent-primary);
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+}
+
+.primaryBtn, .secondaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  font-family: var(--font-fira-code);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.primaryBtn {
+  background-color: transparent;
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+  box-shadow: 0 0 10px rgba(0, 194, 212, 0.15) inset;
+}
+
+.primaryBtn:hover {
+  background-color: rgba(0, 194, 212, 0.08);
+  box-shadow: 0 0 20px rgba(0, 194, 212, 0.35) inset, 0 0 20px rgba(0, 194, 212, 0.2);
+}
+
+.secondaryBtn {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--text-secondary);
+}
+
+.secondaryBtn:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background-color: rgba(0, 194, 212, 0.05);
+}
+
+/* ─── Photo Frame Container ─── */
+
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.photoFrameOuter {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Outer decorative ring */
+.outerRing {
+  position: absolute;
+  inset: -18px;
+  border: 1px dashed rgba(0, 194, 212, 0.2);
+  border-radius: 50% !important;
+  animation: rotateSlow 20s linear infinite;
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Octagonal clip-path frame — like a tsuba (sword guard) */
+.photoFrame {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--border-intense);
+  background: rgba(6, 13, 24, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(
+    22px 0%,
+    calc(100% - 22px) 0%,
+    100% 22px,
+    100% calc(100% - 22px),
+    calc(100% - 22px) 100%,
+    22px 100%,
+    0% calc(100% - 22px),
+    0% 22px
+  );
+}
+
+/* Subtle grid pattern overlay */
+.gridBg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(0, 194, 212, 0.04) 28px, rgba(0, 194, 212, 0.04) 29px),
+    repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(0, 194, 212, 0.04) 28px, rgba(0, 194, 212, 0.04) 29px);
+  pointer-events: none;
+}
+
+/* Inner circular photo area */
+.photoInner {
+  width: 290px;
+  height: 290px;
+  border-radius: 50% !important;
+  border: 2px solid var(--accent-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: radial-gradient(circle, rgba(0, 194, 212, 0.07) 0%, transparent 70%);
+  box-shadow:
+    0 0 30px rgba(0, 194, 212, 0.18),
+    inset 0 0 30px rgba(0, 194, 212, 0.06);
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Large kanji watermark */
+.kanjiWatermark {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 7rem;
+  color: var(--accent-primary);
+  opacity: 0.07;
+  position: absolute;
+  user-select: none;
+  letter-spacing: 0;
+}
+
+/* Placeholder label content */
+.placeholderContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 1;
+}
+
+.placeholderIcon {
+  font-size: 2rem;
+  color: var(--accent-primary);
+  opacity: 0.55;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+.placeholderLine {
+  font-family: var(--font-fira-code);
+  font-size: 0.7rem;
+  color: var(--accent-primary);
+  opacity: 0.6;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.placeholderSub {
+  font-family: var(--font-fira-code);
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  letter-spacing: 1px;
+}
+
+.profileImage {
+  object-fit: cover;
+  z-index: 10;
+}
+
+/* Animated scan line */
+.scanLine {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+  opacity: 0.4;
+  animation: scan 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0%   { top: 0%; opacity: 0; }
+  10%  { opacity: 0.4; }
+  90%  { opacity: 0.4; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Corner bracket ornaments — tsuba-inspired */
+.cornerTL, .cornerTR, .cornerBL, .cornerBR {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  z-index: 5;
+}
+
+.cornerTL {
+  top: -3px; left: -3px;
+  border-top: 3px solid var(--accent-primary);
+  border-left: 3px solid var(--accent-primary);
+  box-shadow: -2px -2px 8px rgba(0, 194, 212, 0.4);
+}
+
+.cornerTR {
+  top: -3px; right: -3px;
+  border-top: 3px solid var(--accent-primary);
+  border-right: 3px solid var(--accent-primary);
+  box-shadow: 2px -2px 8px rgba(0, 194, 212, 0.4);
+}
+
+.cornerBL {
+  bottom: -3px; left: -3px;
+  border-bottom: 3px solid var(--accent-primary);
+  border-left: 3px solid var(--accent-primary);
+  box-shadow: -2px 2px 8px rgba(0, 194, 212, 0.4);
+}
+
+.cornerBR {
+  bottom: -3px; right: -3px;
+  border-bottom: 3px solid var(--accent-primary);
+  border-right: 3px solid var(--accent-primary);
+  box-shadow: 2px 2px 8px rgba(0, 194, 212, 0.4);
+}
+
+/* Aura glow behind the frame */
+.demonAura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(0, 194, 212, 0.1) 0%, transparent 65%);
+  border-radius: 50% !important;
+  z-index: -1;
+  animation: pulseAura 5s infinite ease-in-out;
+}
+
+@keyframes pulseAura {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50%       { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 968px) {
+  .heroSection {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 5% 50px;
+    gap: 50px;
+  }
+
+  .subtitle {
+    justify-content: center;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .photoFrameOuter {
+    width: 300px;
+    height: 300px;
+  }
+
+  .photoInner {
+    width: 210px;
+    height: 210px;
+  }
+}

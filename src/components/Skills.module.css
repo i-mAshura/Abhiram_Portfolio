@@ -1,0 +1,100 @@
+.skillsSection {
+  padding: 100px 10%;
+  min-height: 100vh;
+  position: relative;
+}
+
+.header {
+  margin-bottom: 50px;
+}
+
+.sectionTitle {
+  font-family: var(--font-fira-code);
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.divider {
+  height: 2px;
+  width: 100px;
+  background-color: var(--accent-primary);
+  box-shadow: var(--glow-effect);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: rgba(var(--bg-secondary-rgb), 0.5);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 25px;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--accent-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), var(--glow-effect);
+  background: rgba(var(--bg-secondary-rgb), 0.8);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+}
+
+.cardHeader h3 {
+  font-family: var(--font-fira-code);
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+.icon {
+  color: var(--accent-primary);
+}
+
+.skillList {
+  list-style: none;
+}
+
+.skillItem {
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bullet {
+  color: var(--accent-primary);
+  font-family: var(--font-fira-code);
+  font-weight: bold;
+}

@@ -1,0 +1,103 @@
+.projectsSection {
+  padding: 100px 10%;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 50px;
+}
+
+.sectionTitle {
+  font-family: var(--font-fira-code);
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.divider {
+  height: 2px;
+  width: 100px;
+  background-color: var(--accent-primary);
+  box-shadow: var(--glow-effect);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.projectCard {
+  background: rgba(var(--bg-secondary-rgb), 0.3);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  background: rgba(var(--bg-secondary-rgb), 0.7);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), var(--glow-effect);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.folderIcon {
+  color: var(--accent-primary);
+}
+
+.githubLink {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.githubLink:hover {
+  color: var(--accent-primary);
+}
+
+.projectTitle {
+  font-family: var(--font-fira-code);
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+
+.projectDesc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.techBadge {
+  font-family: var(--font-fira-code);
+  font-size: 0.75rem;
+  color: var(--accent-primary);
+  background: rgba(0, 194, 212, 0.07);
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 194, 212, 0.22);
+  transition: all 0.25s ease;
+}
+
+.techBadge:hover {
+  background: rgba(0, 194, 212, 0.14);
+  border-color: var(--accent-primary);
+}

@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&display=swap');
+
+:root {
+  /* ── Ninja Shadow × Web3 — Deep Abyss Palette ── */
+  --bg-primary: #020406;
+  --bg-primary-rgb: 2, 4, 6;
+  --bg-secondary: #050b14;
+  --bg-secondary-rgb: 5, 11, 20;
+  --bg-tertiary: #0a1520;
+
+  --text-primary: #e8eef5;
+  --text-secondary: #5e7a90;
+
+  /* Core Accent — Cold Steel Cyan */
+  --accent-primary: #00c2d4;
+  --accent-secondary: #004d6e;
+  --accent-glow: #00e5ff;
+
+  /* New: Blood Crimson — Blade strikes */
+  --accent-red: #e8002a;
+  --accent-red-dim: #8b0018;
+  --glow-red: 0 0 12px rgba(232, 0, 42, 0.7), 0 0 30px rgba(232, 0, 42, 0.35);
+
+  /* New: Shadow Violet — Spirit realm */
+  --accent-violet: #8b2fc9;
+  --accent-violet-bright: #b660ff;
+  --glow-violet: 0 0 14px rgba(182, 96, 255, 0.55), 0 0 35px rgba(139, 47, 201, 0.3);
+
+  /* Imperial Gold — Kamon / Web3 */
+  --accent-gold: #d4a017;
+  --accent-gold-bright: #ffe066;
+  --glow-gold: 0 0 14px rgba(212, 160, 23, 0.6), 0 0 30px rgba(212, 160, 23, 0.25);
+
+  /* Poison Green — Shinobi toxin / DeFi */
+  --accent-green: #00ff88;
+  --glow-green: 0 0 10px rgba(0, 255, 136, 0.5), 0 0 25px rgba(0, 255, 136, 0.2);
+
+  --border-color: rgba(0, 194, 212, 0.18);
+  --border-intense: rgba(0, 194, 212, 0.5);
+  --border-red: rgba(232, 0, 42, 0.35);
+  --border-violet: rgba(182, 96, 255, 0.3);
+  --border-gold: rgba(212, 160, 23, 0.35);
+
+  --glow-effect: 0 0 15px rgba(0, 194, 212, 0.45), 0 0 30px rgba(0, 194, 212, 0.2);
+  --glow-subtle: 0 0 10px rgba(0, 194, 212, 0.15);
+
+  /* Web3 gradient — used on headings, badges */
+  --gradient-web3: linear-gradient(135deg, #00c2d4 0%, #8b2fc9 40%, #e8002a 80%, #d4a017 100%);
+  --gradient-blade: linear-gradient(90deg, #00c2d4, #8b2fc9, #e8002a);
+  --gradient-gold: linear-gradient(90deg, #d4a017, #ffe066, #d4a017);
+}
+
+[data-theme='light'] {
+  --bg-primary: #eef3f8;
+  --bg-primary-rgb: 238, 243, 248;
+  --bg-secondary: #ffffff;
+  --bg-secondary-rgb: 255, 255, 255;
+  --bg-tertiary: #d8e5ee;
+
+  --text-primary: #0a1420;
+  --text-secondary: #3d5a70;
+
+  --accent-primary: #0082a0;
+  --accent-secondary: #004d5e;
+  --accent-glow: #00b4d0;
+  --accent-gold: #a07810;
+
+  --border-color: rgba(0, 130, 160, 0.3);
+  --border-intense: rgba(0, 130, 160, 0.65);
+
+  --glow-effect: 0 0 10px rgba(0, 130, 160, 0.3);
+  --glow-subtle: 0 0 5px rgba(0, 130, 160, 0.1);
+  --glow-gold: 0 0 8px rgba(160, 120, 16, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border-radius: 0 !important;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Custom Scrollbar — Ninja Blade ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--accent-red-dim); }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-red); box-shadow: var(--glow-red); }
+
+/* ── Cold Steel Shimmer ── */
+.burning-text {
+  background: var(--gradient-web3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-web3 4s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 8px rgba(0, 194, 212, 0.5));
+}
+
+@keyframes shimmer-web3 {
+  0%   { filter: drop-shadow(0 0 8px rgba(0, 194, 212, 0.6)); }
+  33%  { filter: drop-shadow(0 0 8px rgba(139, 47, 201, 0.6)); }
+  66%  { filter: drop-shadow(0 0 8px rgba(232, 0, 42, 0.6)); }
+  100% { filter: drop-shadow(0 0 8px rgba(212, 160, 23, 0.6)); }
+}
+
+.gold-text {
+  color: var(--accent-gold-bright);
+  text-shadow: var(--glow-gold);
+}
+
+/* ── Web3 Section Divider ── */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--gradient-blade);
+  opacity: 0.3;
+  margin: 0 auto;
+}
+
+.matrix-bg { display: none; }

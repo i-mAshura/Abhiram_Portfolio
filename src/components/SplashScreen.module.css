@@ -1,0 +1,84 @@
+.splashContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+.halfTop, .halfBottom {
+  width: 100%;
+  height: 50vh;
+  background-color: #030000;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.halfTop {
+  align-items: flex-end;
+}
+
+.halfBottom {
+  align-items: flex-start;
+}
+
+.content {
+  position: absolute;
+  bottom: -50px; /* Offset to align with bottom half */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.contentBottom {
+  position: absolute;
+  top: -50px; /* Offset to align with top half */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.kanji {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 3rem;
+  color: var(--accent-primary);
+  letter-spacing: 10px;
+  text-shadow: 0 0 20px rgba(255, 0, 60, 0.8);
+  opacity: 0;
+  animation: fadeIn 1s forwards 0.5s;
+}
+
+.title {
+  font-family: var(--font-fira-code);
+  font-size: 2rem;
+  letter-spacing: 15px;
+  color: #fff;
+  opacity: 0;
+  animation: fadeIn 1s forwards 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; filter: blur(10px); }
+  to { opacity: 1; filter: blur(0); }
+}
+
+.slashLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100vw;
+  height: 4px;
+  background: #fff;
+  box-shadow: 0 0 20px #fff, 0 0 40px var(--accent-primary), 0 0 80px var(--accent-secondary);
+  transform-origin: center;
+  z-index: 10000;
+  border-radius: 50%;
+}

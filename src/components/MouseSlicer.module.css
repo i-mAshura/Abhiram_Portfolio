@@ -1,0 +1,26 @@
+.slicerContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998; /* Just below splash screen */
+  overflow: hidden;
+}
+
+.katanaSlash {
+  position: absolute;
+  width: 250px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ff003c, #fff, #ff003c, transparent);
+  box-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
+  transform-origin: center;
+  border-radius: 50%;
+}
+
+.shuriken {
+  position: absolute;
+  transform-origin: center;
+  filter: drop-shadow(0 0 8px #ff003c);
+}
