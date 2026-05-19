@@ -10,9 +10,10 @@
 
 .sectionTitle {
   font-family: var(--font-fira-code);
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   color: var(--text-primary);
   margin-bottom: 10px;
+  word-break: break-word;
 }
 
 .divider {
@@ -97,4 +98,16 @@
   color: var(--accent-primary);
   font-family: var(--font-fira-code);
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .skillsSection {
+    padding: 80px 5%;
+  }
+  .sectionTitle {
+    font-size: clamp(1.2rem, 6vw, 2rem);
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

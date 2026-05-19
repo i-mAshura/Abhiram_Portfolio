@@ -2,12 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { useTheme } from './ThemeProvider';
-import { Moon, Sun } from 'lucide-react';
+import { Moon, Sun, Menu, X } from 'lucide-react';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -29,16 +30,21 @@ export default function Navbar() {
         <span className={styles.logoText}>Kage_</span>
       </div>
 
-      <div className={styles.links}>
-        <a href="#about" className={styles.link}>About</a>
-        <a href="#skills" className={styles.link}>Skills</a>
-        <a href="#projects" className={styles.link}>Projects</a>
-        <a href="#contact" className={styles.link}>Contact</a>
+      <div className={`${styles.links} ${mobileMenuOpen ? styles.mobileOpen : ''}`}>
+        <a href="#about" className={styles.link} onClick={() => setMobileMenuOpen(false)}>About</a>
+        <a href="#skills" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Skills</a>
+        <a href="#projects" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Projects</a>
+        <a href="#contact" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Contact</a>
       </div>
 
-      <button onClick={toggleTheme} className={styles.themeToggle} aria-label="Toggle Theme">
-        {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-      </button>
+      <div className={styles.controls}>
+        <button onClick={toggleTheme} className={styles.themeToggle} aria-label="Toggle Theme">
+          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
+        <button className={styles.mobileToggle} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle Menu">
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
     </nav>
   );
 }

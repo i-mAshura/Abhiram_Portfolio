@@ -9,9 +9,10 @@
 
 .sectionTitle {
   font-family: var(--font-fira-code);
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   color: var(--text-primary);
   margin-bottom: 10px;
+  word-break: break-word;
 }
 
 .divider {
@@ -100,4 +101,16 @@
 .techBadge:hover {
   background: rgba(0, 194, 212, 0.14);
   border-color: var(--accent-primary);
+}
+
+@media (max-width: 768px) {
+  .projectsSection {
+    padding: 80px 5%;
+  }
+  .sectionTitle {
+    font-size: clamp(1.2rem, 6vw, 2rem);
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

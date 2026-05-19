@@ -9,9 +9,10 @@
 
 .sectionTitle {
   font-family: var(--font-fira-code);
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   color: var(--text-primary);
   margin-bottom: 10px;
+  word-break: break-word;
 }
 
 .divider {
@@ -55,6 +56,7 @@
   border-radius: 4px;
   font-family: var(--font-fira-code);
   color: var(--accent-primary);
+  word-break: break-all;
 }
 
 .form {
@@ -136,7 +138,19 @@
 }
 
 @media (max-width: 768px) {
+  .contactSection {
+    padding: 80px 5%;
+  }
+  .sectionTitle {
+    font-size: clamp(1.2rem, 6vw, 2rem);
+  }
   .container {
     flex-direction: column;
+    gap: 30px;
+  }
+  .terminalPrompt {
+    padding: 10px 15px;
+    font-size: 0.85rem;
+    gap: 10px;
   }
 }
