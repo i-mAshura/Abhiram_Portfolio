@@ -400,3 +400,129 @@
     justify-content: center;
   }
 }
+
+/* ─── Added Cyber Hero Enhancements ─── */
+
+.topBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.rankBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-fira-code);
+  font-size: 0.75rem;
+  color: var(--accent-gold-bright);
+  background: rgba(212, 160, 23, 0.12);
+  border: 1px solid rgba(212, 160, 23, 0.4);
+  padding: 3px 10px;
+}
+
+.affiliationLine {
+  font-family: var(--font-fira-code);
+  font-size: 0.9rem;
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.affilDot {
+  color: var(--text-secondary);
+}
+
+.metricsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 25px 0 30px;
+}
+
+.metricItem {
+  background: rgba(10, 21, 32, 0.7);
+  border: 1px solid var(--border-color);
+  padding: 12px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metricVal {
+  font-family: var(--font-fira-code);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.metricLabel {
+  font-family: var(--font-fira-code);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.socialBar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.socialBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-fira-code);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  background: rgba(5, 11, 20, 0.7);
+  border: 1px solid var(--border-color);
+  padding: 6px 14px;
+  transition: all 0.25s ease;
+}
+
+.socialBtn:hover {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  background: rgba(0, 194, 212, 0.1);
+  box-shadow: var(--glow-subtle);
+  transform: translateY(-2px);
+}
+
+.resumeBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  font-family: var(--font-fira-code);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  background: rgba(212, 160, 23, 0.12);
+  color: var(--accent-gold-bright);
+  border: 1px solid rgba(212, 160, 23, 0.5);
+}
+
+.resumeBtn:hover {
+  background: rgba(212, 160, 23, 0.25);
+  box-shadow: var(--glow-gold);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 650px) {
+  .metricsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

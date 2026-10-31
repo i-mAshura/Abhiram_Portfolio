@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useTheme } from './ThemeProvider';
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import { Moon, Sun, Menu, X, FileDown } from 'lucide-react';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -11,7 +11,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -27,14 +27,27 @@ export default function Navbar() {
           <circle cx="4" cy="20" r="1.5" fill="currentColor" stroke="none" />
         </svg>
         <span className={styles.logoKanji}>忍</span>
-        <span className={styles.logoText}>Kage_</span>
+        <span className={styles.logoText}>Ashura_</span>
       </div>
 
       <div className={`${styles.links} ${mobileMenuOpen ? styles.mobileOpen : ''}`}>
         <a href="#about" className={styles.link} onClick={() => setMobileMenuOpen(false)}>About</a>
+        <a href="#experience" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Experience</a>
+        <a href="#publications" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Research</a>
         <a href="#skills" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Skills</a>
-        <a href="#projects" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Projects</a>
+        <a href="#projects" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Operations</a>
+        <a href="#awards" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Credentials</a>
         <a href="#contact" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Contact</a>
+        <a
+          href="/K_SAI_ABHIRAM.pdf"
+          download="K_SAI_ABHIRAM.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.resumeNavLink}
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          <FileDown size={15} /> Resume
+        </a>
       </div>
 
       <div className={styles.controls}>

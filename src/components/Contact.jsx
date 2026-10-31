@@ -2,12 +2,12 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, TerminalSquare } from 'lucide-react';
+import { Send, TerminalSquare, Mail, Phone, MapPin, Download, CheckCircle } from 'lucide-react';
 import styles from './Contact.module.css';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('idle'); // idle, loading, success, error
+  const [status, setStatus] = useState('idle');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -27,7 +27,7 @@ export default function Contact() {
       if (res.ok) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
-        setTimeout(() => setStatus('idle'), 5000);
+        setTimeout(() => setStatus('idle'), 6000);
       } else {
         setStatus('error');
       }
@@ -45,6 +45,14 @@ export default function Contact() {
         transition={{ duration: 0.6 }}
         className={styles.header}
       >
+        <span style={{
+          fontFamily: 'var(--font-fira-code)',
+          fontSize: '0.85rem',
+          color: 'var(--accent-primary)',
+          letterSpacing: '2px',
+          display: 'block',
+          marginBottom: '10px'
+        }}>// DIRECT_TRANSMISSION</span>
         <h2 className={styles.sectionTitle}>&lt;Establish_Connection /&gt;</h2>
         <div className={styles.divider}></div>
       </motion.div>
@@ -57,13 +65,55 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className={styles.info}
         >
-          <h3>Let's Collaborate</h3>
+          <h3>Let's Collaborate &amp; Build</h3>
           <p>
-            Whether you have a question, a project proposal, or just want to discuss the latest in cybersecurity and ethical hacking, my inbox is open. I'll get back to you as soon as possible.
+            Whether you are looking to collaborate on security research, explore Zero-Trust IAM architectures, discuss offensive security engagements, or review my technical dossier, my channels are open.
           </p>
-          <div className={styles.terminalPrompt}>
-            <TerminalSquare size={20} className={styles.icon} />
-            <span>sys.connect("kollurusaiabhiram2005@gmail.com")</span>
+
+          <div className={styles.channelsList}>
+            <a href="mailto:kollurusaiabhiram513@gmail.com" className={styles.channelItem}>
+              <Mail size={18} className={styles.channelIcon} />
+              <div>
+                <span className={styles.channelLabel}>Primary Signal</span>
+                <span className={styles.channelVal}>kollurusaiabhiram513@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="mailto:kollurusaiabhiram2005@gmail.com" className={styles.channelItem}>
+              <Mail size={18} className={styles.channelIcon} />
+              <div>
+                <span className={styles.channelLabel}>Alternate Signal</span>
+                <span className={styles.channelVal}>kollurusaiabhiram2005@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="tel:+918885667817" className={styles.channelItem}>
+              <Phone size={18} className={styles.channelIcon} />
+              <div>
+                <span className={styles.channelLabel}>Direct Line</span>
+                <span className={styles.channelVal}>+91 8885667817</span>
+              </div>
+            </a>
+
+            <div className={styles.channelItem}>
+              <MapPin size={18} className={styles.channelIcon} />
+              <div>
+                <span className={styles.channelLabel}>Deployment Base</span>
+                <span className={styles.channelVal}>Vijayawada / Amaravati, Andhra Pradesh, India</span>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.quickResumeBox}>
+            <a
+              href="/K_SAI_ABHIRAM.pdf"
+              download="K_SAI_ABHIRAM.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.contactResumeBtn}
+            >
+              <Download size={18} /> Download Latest Resume (PDF)
+            </a>
           </div>
         </motion.div>
 
@@ -75,11 +125,16 @@ export default function Contact() {
           className={styles.form} 
           onSubmit={handleSubmit}
         >
+          <div className={styles.terminalPrompt}>
+            <TerminalSquare size={18} className={styles.icon} />
+            <span>sys.connect(&quot;kollurusaiabhiram513@gmail.com&quot;)</span>
+          </div>
+
           <div className={styles.inputGroup}>
             <input 
               type="text" 
               name="name" 
-              placeholder="Name" 
+              placeholder="Your Name / Organization" 
               value={formData.name} 
               onChange={handleChange} 
               required 
@@ -90,7 +145,7 @@ export default function Contact() {
             <input 
               type="email" 
               name="email" 
-              placeholder="Email" 
+              placeholder="Your Return Email Address" 
               value={formData.email} 
               onChange={handleChange} 
               required 
@@ -100,7 +155,7 @@ export default function Contact() {
           <div className={styles.inputGroup}>
             <textarea 
               name="message" 
-              placeholder="Message Payload" 
+              placeholder="Transmission Payload / Inquiry Details" 
               value={formData.message} 
               onChange={handleChange} 
               required 
@@ -114,17 +169,17 @@ export default function Contact() {
             className={styles.submitBtn}
             disabled={status === 'loading'}
           >
-            {status === 'loading' ? 'Transmitting...' : <><Send size={18} /> Execute</>}
+            {status === 'loading' ? 'Transmitting Secure Packet...' : <><Send size={18} /> Transmit Message</>}
           </button>
 
           {status === 'success' && (
             <div className={styles.successMsg}>
-              [SUCCESS] Payload transmitted securely.
+              <CheckCircle size={16} /> [SUCCESS] Payload transmitted securely.
             </div>
           )}
           {status === 'error' && (
             <div className={styles.errorMsg}>
-              [ERROR] Connection failed. Please try again.
+              [NOTICE] Direct submission unavailable. Please dispatch directly to kollurusaiabhiram513@gmail.com.
             </div>
           )}
         </motion.form>

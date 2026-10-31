@@ -154,3 +154,76 @@
     gap: 10px;
   }
 }
+
+/* ─── Contact Channels & Quick Resume ─── */
+
+.channelsList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.channelItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(5, 11, 20, 0.7);
+  border: 1px solid var(--border-color);
+  padding: 12px 18px;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.channelItem:hover {
+  border-color: var(--accent-primary);
+  background: rgba(0, 194, 212, 0.08);
+  box-shadow: var(--glow-subtle);
+  transform: translateX(4px);
+}
+
+.channelIcon {
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+.channelLabel {
+  display: block;
+  font-family: var(--font-fira-code);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.channelVal {
+  font-family: var(--font-fira-code);
+  font-size: 0.88rem;
+  color: var(--text-primary);
+}
+
+.quickResumeBox {
+  margin-top: 20px;
+}
+
+.contactResumeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: rgba(212, 160, 23, 0.12);
+  border: 1px solid rgba(212, 160, 23, 0.45);
+  color: var(--accent-gold-bright);
+  font-family: var(--font-fira-code);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.contactResumeBtn:hover {
+  background: rgba(212, 160, 23, 0.25);
+  box-shadow: var(--glow-gold);
+  transform: translateY(-2px);
+}

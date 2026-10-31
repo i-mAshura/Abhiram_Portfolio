@@ -1,0 +1,263 @@
+.section {
+  padding: 80px 5% 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.tagline {
+  font-family: var(--font-fira-code);
+  font-size: 0.85rem;
+  color: var(--accent-primary);
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sectionTitle {
+  font-size: 2.3rem;
+  font-family: var(--font-fira-code);
+  background: var(--gradient-web3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  letter-spacing: -0.5px;
+}
+
+.divider {
+  height: 2px;
+  width: 100px;
+  background: var(--gradient-blade);
+  margin: 15px auto 0;
+  box-shadow: var(--glow-effect);
+}
+
+.subHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.subHeader h3 {
+  font-size: 1.35rem;
+  font-family: var(--font-fira-code);
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+
+.sectionIcon {
+  color: var(--accent-primary);
+}
+
+.sectionIconGold {
+  color: var(--accent-gold-bright);
+}
+
+.certGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.certCard {
+  background: rgba(5, 11, 20, 0.7);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.certCard:hover {
+  border-color: var(--border-intense);
+  box-shadow: var(--glow-subtle);
+  transform: translateY(-3px);
+}
+
+.certTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.certIssuer {
+  font-family: var(--font-fira-code);
+  font-size: 0.75rem;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.certDate {
+  font-family: var(--font-fira-code);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.certTitle {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.certDesc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.certBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-fira-code);
+  font-size: 0.75rem;
+  color: var(--accent-primary);
+  background: rgba(0, 194, 212, 0.1);
+  padding: 4px 10px;
+  border: 1px solid rgba(0, 194, 212, 0.3);
+  align-self: flex-start;
+}
+
+.splitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.columnList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.honorCard {
+  background: rgba(5, 11, 20, 0.7);
+  border: 1px solid rgba(212, 160, 23, 0.25);
+  padding: 22px;
+  backdrop-filter: blur(10px);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.honorCard:hover {
+  border-color: rgba(212, 160, 23, 0.6);
+  box-shadow: var(--glow-gold);
+  transform: translateY(-2px);
+}
+
+.honorBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-fira-code);
+  font-size: 0.75rem;
+  color: var(--accent-gold-bright);
+  background: rgba(212, 160, 23, 0.12);
+  border: 1px solid rgba(212, 160, 23, 0.4);
+  padding: 3px 8px;
+  margin-bottom: 10px;
+}
+
+.honorTitle {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.honorOrg {
+  font-family: var(--font-fira-code);
+  font-size: 0.8rem;
+  color: var(--accent-gold);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.honorDesc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.leadCard {
+  background: rgba(5, 11, 20, 0.7);
+  border: 1px solid var(--border-color);
+  padding: 22px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.leadCard:hover {
+  border-color: var(--border-intense);
+  box-shadow: var(--glow-subtle);
+  transform: translateY(-2px);
+}
+
+.leadTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.leadRole {
+  font-family: var(--font-fira-code);
+  font-size: 0.85rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.leadPeriod {
+  font-family: var(--font-fira-code);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.leadOrg {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.leadPoints {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.leadPoints li {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.pointBullet {
+  color: var(--accent-primary);
+  font-family: var(--font-fira-code);
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .splitGrid {
+    grid-template-columns: 1fr;
+  }
+}
