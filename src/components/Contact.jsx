@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, Phone, MapPin, Download, CheckCircle, ArrowRight } from 'lucide-react';
+import { Send, Mail, Phone, MapPin, Download, CheckCircle } from 'lucide-react';
 import styles from './Contact.module.css';
 
 export default function Contact() {
@@ -13,24 +13,22 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setStatus('loading');
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+      const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      );
 
-      if (res.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-        setTimeout(() => setStatus('idle'), 6000);
-      } else {
-        setStatus('error');
-      }
+      // Trigger user's mail client with prefilled details
+      window.location.href = `mailto:kollurusaiabhiram513@gmail.com?subject=${subject}&body=${body}`;
+
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setStatus('idle'), 6000);
     } catch (err) {
       setStatus('error');
     }
@@ -159,17 +157,17 @@ export default function Contact() {
             className={styles.submitBtn}
             disabled={status === 'loading'}
           >
-            {status === 'loading' ? 'Sending Message...' : <><Send size={16} /> Send Message</>}
+            {status === 'loading' ? 'Preparing Transmission...' : <><Send size={16} /> Send Message</>}
           </button>
 
           {status === 'success' && (
             <div className={styles.successMsg}>
-              <CheckCircle size={16} /> Message sent successfully. I will get back to you shortly.
+              <CheckCircle size={16} /> Email client opened with your pre-filled inquiry.
             </div>
           )}
           {status === 'error' && (
             <div className={styles.errorMsg}>
-              Message could not be sent directly. Please email me at kollurusaiabhiram513@gmail.com.
+              Could not open email client automatically. Please email me at kollurusaiabhiram513@gmail.com.
             </div>
           )}
         </motion.form>
