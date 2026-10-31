@@ -1,29 +1,33 @@
-# 影子 // SHADOW_PROTOCOL
+# Sai Abhiram Kolluru — Professional Portfolio
 
-**Personal Portfolio of Sai Abhiram Kolluru**  
-🛡️ *Security Engineer @ Digital Fortress* | 🔬 *Research Intern @ IIT Madras (ASTHRA Lab)*  
-🎓 *VIT-AP University — Specialization Rank 1 (CGPA: 9.44 / 10.0)*
+🛡️ **Security Engineer** @ Digital Fortress  
+🔬 **Research Intern** @ IIT Madras (ASTHRA Lab) — *AI for Security*  
+🎓 **VIT-AP University** — *B.Tech CSE (Cyber Security), Specialization Rank 1 (CGPA: 9.44 / 10.0)*  
+📜 **Certifications:** AWS Certified Security – Specialty & Solutions Architect, Google Cybersecurity, CNSP
 
-A high-performance, cyber-security & "Shadow Ninja" themed portfolio built with Next.js 16 (Turbopack), Framer Motion, and CSS Modules. This site encapsulates my work across Zero-Trust IAM, eBPF kernel telemetry, AI for security, SIEM/SOAR automation, and academic publications.
-
----
-
-## ⚡ Core Highlights
-
-- **Zero-Trust IAM & Cloud Defense:** FIDO2 / WebAuthn passwordless authentication, OIDC/SAML integration, Open Policy Agent (OPA/Rego) ABAC policies, and AWS least-privilege security auditing (Boto3/CloudTrail).
-- **Academic Research & Publications:** Author of *"Beyond the Trust Boundary: A Critical Reassessment of the FIDO2 Threat Model"* (arXiv:2609.03789) and manuscripts on neurosymbolic APT detection, post-quantum zero trust ICS audit, and federated world model scope sealing.
-- **Agentic SOC & SIEM:** Architect of **ARGUS** (agentic SIEM with autonomous response reducing MTTR by 70%) and **NexusSOC** (Wazuh SIEM + n8n playbooks).
-- **Kernel Telemetry & RF Security:** In-kernel eBPF temporal intrusion detection (`eBPF_KernelGuard`), SDR spectrum experiments (HackRF/bladeRF for GNSS & DFS), and CAN-bus automotive security analysis.
-- **Top Academic & Industry Credentials:** AWS Certified Security – Specialty, AWS Certified Solutions Architect, Google Cybersecurity Professional, CNSP, and Optiv Recruitment Hackathon 2nd Place.
+A modern, high-performance executive portfolio built with Next.js 16 (App Router, Turbopack), Framer Motion, and modern UI styling. Showcases production systems, peer-reviewed publications, in-kernel eBPF telemetry, Zero-Trust IAM architectures, and competitive security credentials.
 
 ---
 
-## 🛠️ Tech Stack
+## ⚡ Core Domains & Research Focus
+
+- **Zero-Trust Identity & Access Management:** Production deployment of FIDO2 / WebAuthn passwordless authentication, OIDC/SAML federated identity, Open Policy Agent (OPA/Rego) ABAC policies, and AWS least-privilege automation (Boto3/CloudTrail).
+- **Academic Research & Publications:**
+  - *"Beyond the Trust Boundary: A Critical Reassessment of the FIDO2 Threat Model"* (arXiv:2609.03789 [cs.CR])
+  - *"NEUROSYMBOLIC-APT: Explainable, Adversarially Robust, Federated APT Detection"*
+  - *"Breaking the Abstraction Boundary: Abstraction-Collision Scope Laundering in Federated Agent World Models"*
+  - *"Quantum-Resistant Zero Trust Audit Architecture for Normally Air-Gapped Industrial Control Systems"*
+- **Agentic Security & SIEM Automation:** Designed **ARGUS** (agentic SIEM with autonomous incident containment reducing MTTR by 70%) and **NexusSOC** (Wazuh SIEM + n8n playbooks).
+- **In-Kernel Telemetry & Threat Detection:** In-kernel eBPF temporal intrusion detection (`eBPF_KernelGuard`), SDR spectrum experiments (HackRF/bladeRF for GNSS & DFS), and CAN-bus automotive network security analysis.
+
+---
+
+## 🛠️ Technology Stack
 
 - **Framework:** [Next.js](https://nextjs.org/) (App Router, Turbopack)
-- **Styling:** Cyberpunk Dark Abyss CSS Modules with Japanese Kanji motifs
+- **Styling:** CSS Modules with modern executive dark/light themes & design tokens
 - **Animations:** [Framer Motion](https://www.framer.com/motion/)
-- **Visuals:** Canvas Particle Network & Molten Glass UI
+- **Icons:** [Lucide React](https://lucide.dev/)
 - **Deployment:** Vercel
 
 ---
@@ -31,10 +35,10 @@ A high-performance, cyber-security & "Shadow Ninja" themed portfolio built with 
 ## 🚀 Running Locally
 
 ```bash
-# Clone repository
+# Clone the repository
 git clone https://github.com/i-mAshura/Abhiram_Portfolio.git
 
-# Enter portfolio directory
+# Navigate into project directory
 cd Abhiram_Portfolio/portfolio-site
 
 # Install dependencies
@@ -44,13 +48,13 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the live interface.
+Open [http://localhost:3000](http://localhost:3000) to view the live portfolio.
 
 ---
 
-## 📄 Latest Resume
+## 📄 Verified Latest Resume
 
-Download the latest verified resume directly from:
+Download the latest verified resume:
 - [K_SAI_ABHIRAM.pdf](public/K_SAI_ABHIRAM.pdf)
 
 ---
@@ -61,6 +65,3 @@ Download the latest verified resume directly from:
 - **LinkedIn:** [Sai Abhiram Kolluru](https://linkedin.com/in/sai-abhiram-kolluru-a0b71228b)
 - **Google Scholar:** [Sai Abhiram Kolluru](https://scholar.google.com/citations?user=e17NSHcAAAAJ&hl=en&oi=ao)
 - **Email:** [kollurusaiabhiram513@gmail.com](mailto:kollurusaiabhiram513@gmail.com)
-
----
-*Stay stealthy. Enforce Zero Trust.* 🥷🛡️

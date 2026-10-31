@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, ShieldAlert, Users, Trophy, CheckCircle, ExternalLink, Flame } from 'lucide-react';
+import { ShieldCheck, Users, Trophy, CheckCircle, Flame } from 'lucide-react';
 import styles from './Awards.module.css';
 
 const certifications = [
@@ -92,20 +92,22 @@ export default function Awards() {
   return (
     <section id="awards" className={styles.section}>
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.5 }}
         className={styles.header}
       >
-        <span className={styles.tagline}>// CREDENTIALS_&amp;_HONORS</span>
-        <h2 className={styles.sectionTitle}>&lt;Certifications &amp; Leadership /&gt;</h2>
-        <div className={styles.divider}></div>
+        <span className={styles.categoryTag}>Verified Standing</span>
+        <h2 className={styles.sectionTitle}>Certifications &amp; Leadership</h2>
+        <p className={styles.sectionSubtitle}>
+          Industry credentials, competitive accolades, and technical leadership initiatives.
+        </p>
       </motion.div>
 
       {/* Certifications Grid */}
       <div className={styles.subHeader}>
-        <ShieldAlert size={22} className={styles.sectionIcon} />
+        <ShieldCheck size={20} className={styles.sectionIcon} />
         <h3>Industry Certifications</h3>
       </div>
       <div className={styles.certGrid}>
@@ -115,17 +117,19 @@ export default function Awards() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
+            transition={{ duration: 0.4, delay: idx * 0.06 }}
             className={styles.certCard}
           >
-            <div className={styles.certTop}>
-              <span className={styles.certIssuer}>{cert.issuer}</span>
-              <span className={styles.certDate}>{cert.date}</span>
+            <div>
+              <div className={styles.certTop}>
+                <span className={styles.certIssuer}>{cert.issuer}</span>
+                <span className={styles.certDate}>{cert.date}</span>
+              </div>
+              <h4 className={styles.certTitle}>{cert.title}</h4>
+              <p className={styles.certDesc}>{cert.desc}</p>
             </div>
-            <h4 className={styles.certTitle}>{cert.title}</h4>
-            <p className={styles.certDesc}>{cert.desc}</p>
             <div className={styles.certBadge}>
-              <CheckCircle size={14} /> {cert.credentialId}
+              <CheckCircle size={13} /> {cert.credentialId}
             </div>
           </motion.div>
         ))}
@@ -136,21 +140,21 @@ export default function Awards() {
         {/* Honors */}
         <div>
           <div className={styles.subHeader}>
-            <Trophy size={22} className={styles.sectionIconGold} />
+            <Trophy size={20} className={styles.sectionIconGold} />
             <h3>Honors &amp; Accolades</h3>
           </div>
           <div className={styles.columnList}>
             {honors.map((item, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -15 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
                 className={styles.honorCard}
               >
                 <div className={styles.honorBadge}>
-                  <Flame size={14} /> {item.badge}
+                  <Flame size={13} /> {item.badge}
                 </div>
                 <h4 className={styles.honorTitle}>{item.title}</h4>
                 <span className={styles.honorOrg}>{item.org}</span>
@@ -163,17 +167,17 @@ export default function Awards() {
         {/* Leadership */}
         <div>
           <div className={styles.subHeader}>
-            <Users size={22} className={styles.sectionIcon} />
+            <Users size={20} className={styles.sectionIcon} />
             <h3>Leadership &amp; Community</h3>
           </div>
           <div className={styles.columnList}>
             {leadership.map((item, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, x: 20 }}
+                initial={{ opacity: 0, x: 15 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
                 className={styles.leadCard}
               >
                 <div className={styles.leadTop}>
@@ -184,7 +188,7 @@ export default function Awards() {
                 <ul className={styles.leadPoints}>
                   {item.points.map((p, pIdx) => (
                     <li key={pIdx}>
-                      <span className={styles.pointBullet}>&gt;</span> {p}
+                      <span className={styles.pointBullet}>•</span> {p}
                     </li>
                   ))}
                 </ul>

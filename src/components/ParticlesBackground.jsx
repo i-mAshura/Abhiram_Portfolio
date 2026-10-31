@@ -1,103 +1,82 @@
 'use client';
 
-import { useCallback } from "react";
-import Particles from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
+import React from 'react';
 
 export default function ParticlesBackground() {
-  const particlesInit = useCallback(async (engine) => {
-    await loadSlim(engine);
-  }, []);
-
   return (
-    <Particles
-      id="tsparticles"
-      init={particlesInit}
-      options={{
-        background: {
-          color: {
-            value: "transparent",
-          },
-        },
-        fpsLimit: 120,
-        particles: {
-          color: {
-            value: ["#ff0000", "#ff4500", "#cc0000", "#ff8c00"], // Fire colors
-          },
-          move: {
-            direction: "top", // Flames rise
-            enable: true,
-            outModes: {
-              default: "destroy", // Destroy when reaching top
-            },
-            random: true,
-            speed: { min: 2, max: 6 },
-            straight: false,
-            trail: {
-              enable: false,
-            }
-          },
-          number: {
-            density: {
-              enable: true,
-              area: 800,
-            },
-            value: 200, // Very dense for flame effect
-          },
-          opacity: {
-            value: { min: 0.1, max: 0.9 },
-            animation: {
-              enable: true,
-              speed: 3,
-              sync: false,
-              destroy: "min" // Fade out as they rise
-            },
-          },
-          shape: {
-            type: "circle",
-          },
-          size: {
-            value: { min: 10, max: 40 }, // Large overlapping particles for flame base
-            animation: {
-              enable: true,
-              speed: 5,
-              sync: false,
-              destroy: "min" // Shrink as they rise
-            },
-          },
-          blendMode: "screen", // Creates that intense glowing fire effect
-        },
-        emitters: {
-          direction: "top",
-          life: {
-            count: 0,
-            duration: 0.1,
-            delay: 0.1
-          },
-          rate: {
-            delay: 0.1,
-            quantity: 5
-          },
-          size: {
-            width: 100,
-            height: 0
-          },
-          position: {
-            y: 100, // Emit from the very bottom
-            x: 50
-          }
-        },
-        detectRetina: true,
-      }}
+    <div
+      aria-hidden="true"
       style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
+        position: 'fixed',
+        inset: 0,
         zIndex: -1,
-        pointerEvents: "none",
+        pointerEvents: 'none',
+        overflow: 'hidden',
       }}
-    />
+    >
+      {/* Ambient Aurora Glow Lights (React Bits style) */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '-15%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '80vw',
+          height: '600px',
+          background: 'radial-gradient(ellipse at center, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.05) 45%, transparent 70%)',
+          filter: 'blur(80px)',
+          borderRadius: '50%',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          top: '35%',
+          right: '-10%',
+          width: '500px',
+          height: '500px',
+          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 65%)',
+          filter: 'blur(90px)',
+          borderRadius: '50%',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          top: '70%',
+          left: '-10%',
+          width: '500px',
+          height: '500px',
+          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.04) 0%, transparent 65%)',
+          filter: 'blur(90px)',
+          borderRadius: '50%',
+        }}
+      />
+
+      {/* Subtle Dot Pattern Grid with radial fade mask */}
+      <svg
+        width="100%"
+        height="100%"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: 0.45,
+          maskImage: 'radial-gradient(ellipse at 50% 30%, black 20%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at 50% 30%, black 20%, transparent 80%)',
+        }}
+      >
+        <defs>
+          <pattern
+            id="reactbits-dot-grid"
+            width="28"
+            height="28"
+            patternUnits="userSpaceOnUse"
+          >
+            <circle cx="1.5" cy="1.5" r="1" fill="currentColor" style={{ color: 'var(--text-secondary)' }} opacity="0.3" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#reactbits-dot-grid)" />
+      </svg>
+    </div>
   );
 }

@@ -122,15 +122,17 @@ export default function Experience() {
   return (
     <section id="experience" className={styles.section}>
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.5 }}
         className={styles.header}
       >
-        <span className={styles.tagline}>// CHRONOLOGICAL_LOGS</span>
-        <h2 className={styles.sectionTitle}>&lt;Trajectory &amp; Education /&gt;</h2>
-        <div className={styles.divider}></div>
+        <span className={styles.categoryTag}>Background &amp; Milestones</span>
+        <h2 className={styles.sectionTitle}>Experience &amp; Education</h2>
+        <p className={styles.sectionSubtitle}>
+          Professional trajectory spanning industry security engineering, academic AI research at IIT Madras, and academic distinction.
+        </p>
       </motion.div>
 
       <div className={styles.tabContainer}>
@@ -138,13 +140,13 @@ export default function Experience() {
           onClick={() => setActiveTab('experience')}
           className={`${styles.tabBtn} ${activeTab === 'experience' ? styles.tabActive : ''}`}
         >
-          <Briefcase size={18} /> Experience &amp; Research ({experiences.length})
+          <Briefcase size={16} /> Experience &amp; Research ({experiences.length})
         </button>
         <button
           onClick={() => setActiveTab('education')}
           className={`${styles.tabBtn} ${activeTab === 'education' ? styles.tabActive : ''}`}
         >
-          <GraduationCap size={18} /> Education &amp; Academics ({educationList.length})
+          <GraduationCap size={16} /> Education &amp; Academics ({educationList.length})
         </button>
       </div>
 
@@ -153,10 +155,10 @@ export default function Experience() {
           experiences.map((item, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              transition={{ duration: 0.4, delay: idx * 0.08 }}
               className={styles.timelineItem}
             >
               <div className={styles.timelineMarker}>
@@ -176,10 +178,10 @@ export default function Experience() {
                   </div>
                   <div className={styles.metaRight}>
                     <div className={styles.metaPill}>
-                      <Calendar size={14} /> {item.period}
+                      <Calendar size={13} /> {item.period}
                     </div>
                     <div className={styles.metaPill}>
-                      <MapPin size={14} /> {item.location}
+                      <MapPin size={13} /> {item.location}
                     </div>
                   </div>
                 </div>
@@ -187,7 +189,7 @@ export default function Experience() {
                 <ul className={styles.highlightList}>
                   {item.highlights.map((point, pIdx) => (
                     <li key={pIdx} className={styles.highlightItem}>
-                      <ChevronRight size={16} className={styles.bulletIcon} />
+                      <ChevronRight size={15} className={styles.bulletIcon} />
                       <span>{point}</span>
                     </li>
                   ))}
@@ -205,10 +207,10 @@ export default function Experience() {
           educationList.map((item, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              transition={{ duration: 0.4, delay: idx * 0.08 }}
               className={styles.timelineItem}
             >
               <div className={styles.timelineMarker}>
@@ -230,10 +232,10 @@ export default function Experience() {
                   </div>
                   <div className={styles.metaRight}>
                     <div className={styles.scorePill}>
-                      <Award size={15} /> {item.score}
+                      <Award size={14} /> {item.score}
                     </div>
                     <div className={styles.metaPill}>
-                      <Calendar size={14} /> {item.period}
+                      <Calendar size={13} /> {item.period}
                     </div>
                   </div>
                 </div>
@@ -241,7 +243,7 @@ export default function Experience() {
                 <ul className={styles.highlightList}>
                   {item.details.map((point, pIdx) => (
                     <li key={pIdx} className={styles.highlightItem}>
-                      <CheckCircle2 size={16} className={styles.bulletCheck} />
+                      <CheckCircle2 size={15} className={styles.bulletCheck} />
                       <span>{point}</span>
                     </li>
                   ))}

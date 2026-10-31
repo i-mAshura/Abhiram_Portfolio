@@ -8,86 +8,86 @@ import styles from './Skills.module.css';
 const skillCategories = [
   {
     title: "Identity & Access Management (IAM)",
-    icon: <ShieldCheck size={24} />,
+    icon: <ShieldCheck size={20} />,
     skills: [
-      "Keycloak & Centralized SSO",
-      "OIDC, OAuth 2.0 & SAML 2.0",
-      "FIDO2 / WebAuthn & Passwordless",
-      "OPA / Rego Attribute Policies (ABAC)",
-      "Role-Based Access Control (RBAC)",
-      "Least Privilege & Access Reviews",
-      "Joiner-Mover-Leaver & Secrets Governance",
-      "X.509, TLS & PKI Certificate Lifecycle"
+      "Keycloak SSO",
+      "OIDC & SAML 2.0",
+      "FIDO2 / WebAuthn",
+      "OPA / Rego (ABAC)",
+      "Role-Based Access (RBAC)",
+      "Least Privilege",
+      "Secrets Governance",
+      "X.509 & PKI Lifecycle"
     ]
   },
   {
     title: "Network Security & Defense",
-    icon: <Network size={24} />,
+    icon: <Network size={20} />,
     skills: [
-      "Firewall Rule-Base Review & Hardening",
-      "VLAN Segmentation & Zone Isolation",
-      "IDS/IPS (Suricata & Snort)",
-      "Wireshark & Deep Packet Analysis",
-      "VPN & Remote Access MFA Enforcement",
-      "TCP/IP, Routing & Switching Fundamentals",
-      "Perimeter Security & Flow Monitoring",
-      "Network Penetration Testing (Nmap, Burp)"
+      "Firewall Rule-Base Review",
+      "VLAN Segmentation",
+      "Suricata & Snort IDS/IPS",
+      "Wireshark Deep Packet Analysis",
+      "VPN & Remote MFA",
+      "TCP/IP & Routing",
+      "Perimeter Hardening",
+      "Network Pentesting"
     ]
   },
   {
     title: "Security Operations & Threat Intel",
-    icon: <Activity size={24} />,
+    icon: <Activity size={20} />,
     skills: [
-      "SIEM (Wazuh, Splunk, Elasticsearch)",
-      "ARGUS Agentic SOC/SIEM Platform",
-      "MITRE ATT&CK Auto-Mapping (50+ techniques)",
-      "SOAR Automation & Playbooks (n8n, Catalyst)",
+      "SIEM (Wazuh, Splunk, Elastic)",
+      "ARGUS Agentic SOC Platform",
+      "MITRE ATT&CK Auto-Mapping",
+      "SOAR Playbooks (n8n, Catalyst)",
       "Alert Triage & IOC Extraction",
-      "Incident Response & Host Containment",
-      "Server Log Forensics & Anomaly Detection",
-      "Vulnerability Management & Risk Scoring"
+      "Incident Containment",
+      "Server Log Forensics",
+      "Vulnerability Scoring"
     ]
   },
   {
     title: "Cloud & DevSecOps Infrastructure",
-    icon: <Cloud size={24} />,
+    icon: <Cloud size={20} />,
     skills: [
-      "AWS (IAM, CloudTrail, VPC, EC2, S3)",
-      "Cloud Security Risk & Breach Forensics",
-      "Infrastructure as Code (Terraform)",
-      "Python SDK (Boto3) Security Auditing",
-      "Docker Containerization & Linux Admin",
-      "Network ACLs, Security Groups & Flow Logs",
-      "Git/GitHub CI/CD Security Automation",
-      "System Recovery & GRUB/Bootloader"
+      "AWS (IAM, VPC, S3, EC2)",
+      "CloudTrail Forensic Ingestion",
+      "Terraform (IaC)",
+      "Python SDK (Boto3) Auditing",
+      "Docker & Linux Admin",
+      "Security Groups & Flow Logs",
+      "CI/CD Security Automation",
+      "System Recovery & Hardening"
     ]
   },
   {
-    title: "AI, Kernel & Neurosymbolic Security",
-    icon: <Cpu size={24} />,
+    title: "AI & In-Kernel Security Telemetry",
+    icon: <Cpu size={20} />,
     skills: [
-      "eBPF Kernel Telemetry & In-Kernel Probes",
-      "Neurosymbolic Temporal Threat Detection",
-      "PyTorch & Deep Neural Sequence Models",
-      "Hugging Face Transformers & NLP Masking",
-      "Swin Transformer & EfficientNet (Medical AI)",
-      "Explainable AI (XAI) & Attribution",
-      "Graph Analytics (Neo4j & NetworkX)",
-      "Federated Learning & Model Defense"
+      "eBPF Kernel Probes",
+      "Neurosymbolic Threat Models",
+      "PyTorch & Sequence Modeling",
+      "Transformers & NLP Masking",
+      "Swin Transformer & Medical AI",
+      "Explainable AI (XAI)",
+      "Neo4j & NetworkX Graphs",
+      "Federated Model Defenses"
     ]
   },
   {
     title: "Hardware, RF & Automotive Security",
-    icon: <Radio size={24} />,
+    icon: <Radio size={20} />,
     skills: [
-      "CAN-bus Vehicle Network Exploitation",
-      "ICSim In-Vehicle ECU Security Analysis",
-      "Software-Defined Radio (HackRF & bladeRF)",
-      "GPS Spoofing & GNSS Resilience Analysis",
-      "Wi-Fi DFS Interference & Channel Transitions",
-      "SDR-based FM Transmission & Modulation",
-      "Hardware Attack Surfaces & Reverse Eng.",
-      "Post-Quantum Signatures (FALCON-512)"
+      "CAN-bus Vehicle Exploitation",
+      "ICSim ECU Security",
+      "Software-Defined Radio (SDR)",
+      "HackRF & bladeRF Systems",
+      "GPS Spoofing Resilience",
+      "Wi-Fi DFS Spectrum Transition",
+      "SDR Modulation & Signals",
+      "Post-Quantum Cryptography"
     ]
   }
 ];
@@ -96,22 +96,17 @@ export default function Skills() {
   return (
     <section id="skills" className={styles.skillsSection}>
       <motion.div 
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.5 }}
         className={styles.header}
       >
-        <span style={{
-          fontFamily: 'var(--font-fira-code)',
-          fontSize: '0.85rem',
-          color: 'var(--accent-primary)',
-          letterSpacing: '2px',
-          display: 'block',
-          marginBottom: '10px'
-        }}>// TECHNICAL_ARSENAL</span>
-        <h2 className={styles.sectionTitle}>&lt;Skills_Matrix /&gt;</h2>
-        <div className={styles.divider}></div>
+        <span className={styles.categoryTag}>Technical Arsenal</span>
+        <h2 className={styles.sectionTitle}>Skills &amp; Competencies</h2>
+        <p className={styles.sectionSubtitle}>
+          Specialized technical competencies across Zero-Trust identity platforms, production cloud infrastructure, in-kernel telemetry, and security automation.
+        </p>
       </motion.div>
 
       <div className={styles.grid}>
@@ -121,7 +116,7 @@ export default function Skills() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.08 }}
+            transition={{ duration: 0.4, delay: index * 0.06 }}
             className={styles.card}
           >
             <div className={styles.cardHeader}>
@@ -131,7 +126,7 @@ export default function Skills() {
             <ul className={styles.skillList}>
               {category.skills.map((skill, i) => (
                 <li key={i} className={styles.skillItem}>
-                  <span className={styles.bullet}>&gt;</span> {skill}
+                  {skill}
                 </li>
               ))}
             </ul>

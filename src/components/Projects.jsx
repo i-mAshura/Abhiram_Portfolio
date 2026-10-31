@@ -2,16 +2,16 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FolderGit2, ExternalLink, Shield, Cpu, Lock, Radio, Terminal, Sparkles } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import styles from './Projects.module.css';
 
 const categories = [
-  { id: 'all', label: 'All Operations' },
+  { id: 'all', label: 'All Systems' },
   { id: 'iam', label: 'IAM & Cloud Security' },
   { id: 'kernel', label: 'Kernel & Threat Intel' },
   { id: 'ai', label: 'AI, Forensics & Privacy' },
   { id: 'rf', label: 'RF & Automotive' },
-  { id: 'tools', label: 'Security Tools & Homelab' },
+  { id: 'tools', label: 'Security Tools' },
 ];
 
 const projects = [
@@ -171,15 +171,17 @@ export default function Projects() {
   return (
     <section id="projects" className={styles.projectsSection}>
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.5 }}
         className={styles.header}
       >
-        <span className={styles.tagline}>// FIELD_OPERATIONS</span>
-        <h2 className={styles.sectionTitle}>&lt;Classified_Operations /&gt;</h2>
-        <div className={styles.divider}></div>
+        <span className={styles.categoryTag}>Engineering Portfolio</span>
+        <h2 className={styles.sectionTitle}>Projects &amp; Systems</h2>
+        <p className={styles.sectionSubtitle}>
+          Production platforms, security scanners, research implementations, and open-source tooling.
+        </p>
       </motion.div>
 
       {/* Filter Tabs */}
@@ -204,17 +206,14 @@ export default function Projects() {
             <motion.div
               key={project.title}
               layout
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.35, delay: index * 0.04 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.3, delay: index * 0.03 }}
               className={styles.projectCard}
             >
               <div className={styles.cardTop}>
-                <div className={styles.iconAndBadge}>
-                  <FolderGit2 size={28} className={styles.folderIcon} />
-                  <span className={styles.cardCategoryBadge}>{project.badge}</span>
-                </div>
+                <span className={styles.cardCategoryBadge}>{project.badge}</span>
                 <a
                   href={project.github}
                   target="_blank"
@@ -222,7 +221,7 @@ export default function Projects() {
                   className={styles.githubLink}
                   aria-label={`View ${project.title} on GitHub`}
                 >
-                  <ExternalLink size={18} />
+                  <ExternalLink size={16} />
                 </a>
               </div>
 
@@ -240,14 +239,14 @@ export default function Projects() {
       </motion.div>
 
       <div className={styles.moreRepos}>
-        <p>Explore all 25+ open source security repositories, CTF tooling, and research artifacts:</p>
+        <p>Explore all 25+ open-source repositories, experiments, and security tooling:</p>
         <a
           href="https://github.com/i-mAshura"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.allReposBtn}
         >
-          <ExternalLink size={16} /> github.com/i-mAshura
+          <ExternalLink size={15} /> github.com/i-mAshura
         </a>
       </div>
     </section>

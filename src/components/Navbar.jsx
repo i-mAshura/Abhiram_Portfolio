@@ -2,8 +2,18 @@
 
 import React, { useState, useEffect } from 'react';
 import { useTheme } from './ThemeProvider';
-import { Moon, Sun, Menu, X, FileDown } from 'lucide-react';
+import { Moon, Sun, Menu, X, FileDown, ShieldCheck } from 'lucide-react';
 import styles from './Navbar.module.css';
+
+const navItems = [
+  { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Research', href: '#publications' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Credentials', href: '#awards' },
+  { label: 'Contact', href: '#contact' },
+];
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
@@ -11,53 +21,85 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
-      <div className={styles.logo}>
-        {/* Katana SVG mark */}
-        <svg className={styles.logoIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <line x1="2" y1="22" x2="18" y2="6" />
-          <path d="M18 6 L22 2 L22 4 L20 6 Z" fill="currentColor" stroke="none" />
-          <line x1="6" y1="18" x2="9" y2="15" />
-          <circle cx="4" cy="20" r="1.5" fill="currentColor" stroke="none" />
-        </svg>
-        <span className={styles.logoKanji}>忍</span>
-        <span className={styles.logoText}>Ashura_</span>
-      </div>
-
-      <div className={`${styles.links} ${mobileMenuOpen ? styles.mobileOpen : ''}`}>
-        <a href="#about" className={styles.link} onClick={() => setMobileMenuOpen(false)}>About</a>
-        <a href="#experience" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Experience</a>
-        <a href="#publications" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Research</a>
-        <a href="#skills" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Skills</a>
-        <a href="#projects" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Operations</a>
-        <a href="#awards" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Credentials</a>
-        <a href="#contact" className={styles.link} onClick={() => setMobileMenuOpen(false)}>Contact</a>
-        <a
-          href="/K_SAI_ABHIRAM.pdf"
-          download="K_SAI_ABHIRAM.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.resumeNavLink}
-          onClick={() => setMobileMenuOpen(false)}
-        >
-          <FileDown size={15} /> Resume
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
+      <nav className={styles.navbar}>
+        <a href="#about" className={styles.logo}>
+          <div className={styles.logoBadge}>
+            <ShieldCheck size={18} />
+          </div>
+          <span className={styles.logoText}>Sai Abhiram</span>
         </a>
-      </div>
 
-      <div className={styles.controls}>
-        <button onClick={toggleTheme} className={styles.themeToggle} aria-label="Toggle Theme">
-          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-        </button>
-        <button className={styles.mobileToggle} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle Menu">
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-    </nav>
+        <div className={styles.desktopLinks}>
+          {navItems.map((item) => (
+            <a key={item.href} href={item.href} className={styles.navLink}>
+              {item.label}
+            </a>
+          ))}
+        </div>
+
+        <div className={styles.controls}>
+          <a
+            href="/K_SAI_ABHIRAM.pdf"
+            download="K_SAI_ABHIRAM.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.resumeBtn}
+          >
+            <FileDown size={15} /> Resume
+          </a>
+
+          <button
+            onClick={toggleTheme}
+            className={styles.themeToggle}
+            aria-label="Toggle Theme"
+          >
+            {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+          </button>
+
+          <button
+            className={styles.mobileToggle}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Mobile Menu"
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className={styles.mobileDrawer}>
+          <div className={styles.mobileLinks}>
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={styles.mobileNavLink}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href="/K_SAI_ABHIRAM.pdf"
+              download="K_SAI_ABHIRAM.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.mobileResumeBtn}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <FileDown size={16} /> Download Resume
+            </a>
+          </div>
+        </div>
+      )}
+    </header>
   );
 }

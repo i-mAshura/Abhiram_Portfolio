@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Terminal, Shield, Cpu, Download, GraduationCap, Mail, Award, ArrowUpRight } from 'lucide-react';
+import { ShieldCheck, ArrowRight, Download, GraduationCap, Mail, Sparkles, Building2, Cpu, CheckCircle2 } from 'lucide-react';
 import styles from './Hero.module.css';
 
 function GithubIcon({ size = 18 }) {
@@ -27,168 +27,172 @@ function LinkedinIcon({ size = 18 }) {
 export default function Hero() {
   return (
     <section id="about" className={styles.heroSection}>
-      <div className={styles.content}>
+      <div className={styles.container}>
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className={styles.intro}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className={styles.introContent}
         >
-          <div className={styles.topBadgeRow}>
-            <span className={styles.greeting}>&gt; 起動完了 // SECURITY_PROTOCOL :: ACTIVE</span>
-            <span className={styles.rankBadge}>
-              <Award size={13} /> VIT-AP Specialization Rank 1 (9.44 CGPA)
-            </span>
+          {/* Status Indicator Badge (React Bits Pill) */}
+          <div className={styles.statusBadge}>
+            <span className={styles.pulseDot} />
+            <span className={styles.statusText}>Security Engineer &amp; Researcher</span>
+            <span className={styles.badgeDivider}>•</span>
+            <span className={styles.specialBadge}>VIT-AP Rank 1 (9.44 CGPA)</span>
           </div>
 
           <h1 className={styles.title}>
-            <span className="burning-text">Sai Abhiram Kolluru</span>
+            Sai Abhiram Kolluru
           </h1>
 
-          <h2 className={styles.subtitle}>
-            <Shield size={20} className={styles.icon} /> Security Engineer &amp;{' '}
-            <Cpu size={20} className={styles.icon} /> AI Security Researcher
-          </h2>
-
-          <p className={styles.affiliationLine}>
-            <span>Security Engineer @ Digital Fortress</span>
-            <span className={styles.affilDot}>•</span>
-            <span>Research Intern @ IIT Madras (ASTHRA Lab)</span>
+          <p className={styles.roleHeadline}>
+            <span className={styles.gradientRole}>Zero-Trust IAM</span>
+            <span className={styles.roleDot}>•</span>
+            <span className={styles.gradientRole}>Kernel Telemetry (eBPF)</span>
+            <span className={styles.roleDot}>•</span>
+            <span className={styles.gradientRole}>AI for Security</span>
           </p>
 
-          <p className={styles.description}>
-            Specializing in Zero-Trust Identity &amp; Access Management (FIDO2/WebAuthn, OIDC/SAML, OPA), eBPF-based kernel telemetry, network perimeter hardening, and autonomous SOC/SIEM automation. Researching AI for security at IIT Madras ASTHRA Lab, author of publications on FIDO2 threat modeling, and architect of intelligent threat detection systems.
+          <p className={styles.summary}>
+            Security Engineer at <strong>Digital Fortress</strong> and Security R&amp;D Intern at <strong>IIT Madras (ASTHRA Lab)</strong>. Specializing in passwordless/MFA authentication (FIDO2/WebAuthn, OIDC, SAML, OPA/Rego), cloud security auditing (AWS), in-kernel eBPF telemetry, and agentic SOC/SIEM automation. Author of preprints on FIDO2 threat models and explainable intrusion detection.
           </p>
 
-          {/* Key Metrics Counter */}
-          <div className={styles.metricsContainer}>
-            <div className={styles.metricItem}>
-              <span className={styles.metricVal}>9.44</span>
-              <span className={styles.metricLabel}>CGPA / Rank 1</span>
-            </div>
-            <div className={styles.metricItem}>
-              <span className={styles.metricVal}>3+ Yrs</span>
-              <span className={styles.metricLabel}>IAM &amp; NetSec</span>
-            </div>
-            <div className={styles.metricItem}>
-              <span className={styles.metricVal}>70%</span>
-              <span className={styles.metricLabel}>MTTR Reduction</span>
-            </div>
-            <div className={styles.metricItem}>
-              <span className={styles.metricVal}>AWS</span>
-              <span className={styles.metricLabel}>Security Specialty</span>
-            </div>
-          </div>
-
-          {/* Social Links Row */}
+          {/* Social Links Bar */}
           <div className={styles.socialBar}>
             <a
               href="https://github.com/i-mAshura"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.socialBtn}
+              className={styles.socialPill}
               aria-label="GitHub Profile"
             >
-              <GithubIcon size={18} />
-              <span>GitHub</span>
+              <GithubIcon size={16} /> GitHub
             </a>
             <a
               href="https://linkedin.com/in/sai-abhiram-kolluru-a0b71228b"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.socialBtn}
+              className={styles.socialPill}
               aria-label="LinkedIn Profile"
             >
-              <LinkedinIcon size={18} />
-              <span>LinkedIn</span>
+              <LinkedinIcon size={16} /> LinkedIn
             </a>
             <a
               href="https://scholar.google.com/citations?user=e17NSHcAAAAJ&hl=en&oi=ao"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.socialBtn}
+              className={styles.socialPill}
               aria-label="Google Scholar"
             >
-              <GraduationCap size={18} />
-              <span>Google Scholar</span>
+              <GraduationCap size={16} /> Google Scholar
             </a>
             <a
               href="mailto:kollurusaiabhiram513@gmail.com"
-              className={styles.socialBtn}
-              aria-label="Send Email"
+              className={styles.socialPill}
+              aria-label="Email"
             >
-              <Mail size={18} />
-              <span>Email</span>
+              <Mail size={16} /> Email
             </a>
           </div>
 
+          {/* Main Action CTAs */}
           <div className={styles.actions}>
-            <motion.a
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-              href="#projects"
-              className={styles.primaryBtn}
-            >
-              <Cpu size={18} /> Operations &amp; Projects
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-              href="#publications"
-              className={styles.secondaryBtn}
-            >
-              <ArrowUpRight size={18} /> Research
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
+            <a
               href="/K_SAI_ABHIRAM.pdf"
               download="K_SAI_ABHIRAM.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.resumeBtn}
+              className={styles.primaryBtn}
             >
-              <Download size={18} /> Download Latest Resume
-            </motion.a>
+              <Download size={17} /> Download Resume (PDF)
+            </a>
+            <a href="#publications" className={styles.secondaryBtn}>
+              Research &amp; Publications <ArrowRight size={16} />
+            </a>
+            <a href="#projects" className={styles.tertiaryBtn}>
+              View Systems
+            </a>
+          </div>
+        </motion.div>
+
+        {/* Profile Card (React Bits Elevated Spotlight Frame) */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className={styles.profileCardWrapper}
+        >
+          <div className={styles.profileCard}>
+            <div className={styles.imageWrapper}>
+              <Image
+                src="/photo.png"
+                alt="Sai Abhiram Kolluru"
+                fill
+                className={styles.profileImage}
+                priority
+              />
+            </div>
+            <div className={styles.cardInfo}>
+              <div className={styles.cardHeaderRow}>
+                <div>
+                  <h3 className={styles.cardName}>Sai Abhiram Kolluru</h3>
+                  <p className={styles.cardTitle}>Security Engineer &amp; Researcher</p>
+                </div>
+                <div className={styles.verifiedBadge} title="Verified Credentials">
+                  <ShieldCheck size={18} />
+                </div>
+              </div>
+
+              <div className={styles.cardMetaGrid}>
+                <div className={styles.cardMetaItem}>
+                  <span className={styles.metaLabel}>Current Role</span>
+                  <span className={styles.metaValue}>Digital Fortress // IIT Madras</span>
+                </div>
+                <div className={styles.cardMetaItem}>
+                  <span className={styles.metaLabel}>Credentials</span>
+                  <span className={styles.metaValue}>AWS Security Specialty</span>
+                </div>
+                <div className={styles.cardMetaItem}>
+                  <span className={styles.metaLabel}>Academics</span>
+                  <span className={styles.metaValue}>VIT-AP Rank 1 (9.44 CGPA)</span>
+                </div>
+                <div className={styles.cardMetaItem}>
+                  <span className={styles.metaLabel}>Focus Area</span>
+                  <span className={styles.metaValue}>Zero-Trust IAM &amp; eBPF</span>
+                </div>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Cyber Photo Frame */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.2 }}
-        className={styles.imageContainer}
-      >
-        <div className={styles.photoFrameOuter}>
-          <div className={styles.cornerTL} />
-          <div className={styles.cornerTR} />
-          <div className={styles.cornerBL} />
-          <div className={styles.cornerBR} />
-
-          <div className={styles.outerRing} />
-
-          <div className={styles.photoFrame}>
-            <div className={styles.gridBg} />
-
-            <div className={styles.photoInner}>
-              <span className={styles.kanjiWatermark}>影</span>
-              <Image 
-                src="/photo.png" 
-                alt="Sai Abhiram Kolluru" 
-                fill 
-                className={styles.profileImage} 
-                priority
-              />
-            </div>
-
-            <div className={styles.scanLine} />
-          </div>
-
-          <div className={styles.demonAura} />
+      {/* Bento Stats Row (React Bits style) */}
+      <div className={styles.bentoRow}>
+        <div className={styles.bentoCard}>
+          <div className={styles.bentoNumber}>9.44</div>
+          <div className={styles.bentoTitle}>CGPA // Specialization Rank 1</div>
+          <p className={styles.bentoDesc}>Department Rank 1 in Cyber Security / Network &amp; Security at VIT-AP University.</p>
         </div>
-      </motion.div>
+
+        <div className={styles.bentoCard}>
+          <div className={styles.bentoNumber}>3+ Yrs</div>
+          <div className={styles.bentoTitle}>IAM &amp; Network Security</div>
+          <p className={styles.bentoDesc}>Production passwordless MFA, OIDC/SAML, OPA policies, and AWS perimeter defense.</p>
+        </div>
+
+        <div className={styles.bentoCard}>
+          <div className={styles.bentoNumber}>70%</div>
+          <div className={styles.bentoTitle}>MTTR Reduction (ARGUS)</div>
+          <p className={styles.bentoDesc}>Agentic SIEM/SOAR with autonomous triage and MITRE ATT&amp;CK technique tagging.</p>
+        </div>
+
+        <div className={styles.bentoCard}>
+          <div className={styles.bentoNumber}>4+</div>
+          <div className={styles.bentoTitle}>Research Papers &amp; Preprints</div>
+          <p className={styles.bentoDesc}>FIDO2 threat model analysis (arXiv:2609.03789), eBPF temporal IDS, and post-quantum ICS.</p>
+        </div>
+      </div>
     </section>
   );
 }
