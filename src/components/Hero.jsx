@@ -38,8 +38,6 @@ export default function Hero() {
           <div className={styles.statusBadge}>
             <span className={styles.pulseDot} />
             <span className={styles.statusText}>Security Engineer &amp; Researcher</span>
-            <span className={styles.badgeDivider}>•</span>
-            <span className={styles.specialBadge}>VIT-AP Rank 1 (9.44 CGPA)</span>
           </div>
 
           <h1 className={styles.title}>
