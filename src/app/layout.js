@@ -1,12 +1,4 @@
-import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import ParticlesBackground from "@/components/ParticlesBackground";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const firaCode = Fira_Code({ subsets: ["latin"], variable: "--font-fira-code" });
 
 export const metadata = {
   title: "Sai Abhiram Kolluru | Security Engineer, Zero-Trust IAM & AI Security Researcher",
@@ -37,15 +29,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="dark">
-      <body className={`${inter.variable} ${firaCode.variable}`}>
-        <ThemeProvider>
-          <ParticlesBackground />
-          {children}
-        </ThemeProvider>
-        <Analytics />
-        <SpeedInsights />
-      </body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }
