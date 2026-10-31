@@ -5,7 +5,7 @@
 🎓 **VIT-AP University** — *B.Tech CSE (Cyber Security), Specialization Rank 1 (CGPA: 9.44 / 10.0)*  
 📜 **Certifications:** AWS Certified Security – Specialty & Solutions Architect, Google Cybersecurity, CNSP
 
-A modern, high-performance executive portfolio built with Next.js 16 (App Router, Turbopack), Framer Motion, and modern UI styling. Showcases production systems, peer-reviewed publications, in-kernel eBPF telemetry, Zero-Trust IAM architectures, and competitive security credentials.
+A high-end security engineering portfolio built with Next.js 16 (App Router) and a static GitHub Pages export. The visual system pairs an editorial dark interface with lime security-console accents, showcasing production systems, peer-reviewed research, in-kernel eBPF telemetry, Zero-Trust IAM architectures, and professional credentials.
 
 ---
 
@@ -24,9 +24,8 @@ A modern, high-performance executive portfolio built with Next.js 16 (App Router
 
 - **Framework:** [Next.js](https://nextjs.org/) (App Router, Turbopack)
 - **Styling:** CSS Modules with modern executive dark/light themes & design tokens
-- **Animations:** [Framer Motion](https://www.framer.com/motion/)
 - **Icons:** [Lucide React](https://lucide.dev/)
-- **Deployment:** Vercel
+- **Deployment:** GitHub Pages via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
 
 ---
 
@@ -37,7 +36,7 @@ A modern, high-performance executive portfolio built with Next.js 16 (App Router
 git clone https://github.com/i-mAshura/Abhiram_Portfolio.git
 
 # Navigate into project directory
-cd Abhiram_Portfolio/portfolio-site
+cd Abhiram_Portfolio
 
 # Install dependencies
 npm install
@@ -47,6 +46,14 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the live portfolio.
+
+## 🌐 Deployment
+
+Every push to `main` builds the static site and deploys it to GitHub Pages. The repository includes `CNAME` for the custom domain:
+
+**https://master.abhiram.tech**
+
+If GitHub Pages has not been enabled yet, open the repository **Settings → Pages**, choose **GitHub Actions** as the source, and keep the `github-pages` environment enabled.
 
 ---
 

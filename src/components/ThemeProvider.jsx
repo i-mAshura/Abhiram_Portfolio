@@ -8,18 +8,14 @@ const ThemeContext = createContext({
 });
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === 'undefined') return 'dark';
+    return localStorage.getItem('cyber-theme') || 'dark';
+  });
 
   useEffect(() => {
-    // Check local storage or system preference
-    const storedTheme = localStorage.getItem('cyber-theme');
-    if (storedTheme) {
-      setTheme(storedTheme);
-      document.documentElement.setAttribute('data-theme', storedTheme);
-    } else {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
-  }, []);
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
