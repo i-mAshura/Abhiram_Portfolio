@@ -55,7 +55,7 @@ export default function Home() {
         </div>
         <p style={{ color: 'var(--text-muted)' }}>&copy; {new Date().getFullYear()} Sai Abhiram Kolluru. All rights reserved.</p>
         <p style={{ marginTop: '6px', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-          Security Engineer &amp; AI Security Researcher • VIT-AP University &amp; IIT Madras (ASTHRA Lab)
+          Security Engineer &amp; AI Security Researcher • VIT-AP University
         </p>
       </footer>
     </main>
