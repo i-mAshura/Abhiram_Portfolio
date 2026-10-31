@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, ExternalLink, GraduationCap, ShieldCheck, FileText, Cpu, Network, Lock } from 'lucide-react';
+import { BookOpen, ExternalLink, GraduationCap, ShieldCheck, FileText, Lock } from 'lucide-react';
 import styles from './Publications.module.css';
 
 const publications = [
@@ -18,28 +18,6 @@ const publications = [
     featured: true
   },
   {
-    title: "NEUROSYMBOLIC-APT: Explainable, Adversarially Robust, Federated APT Detection",
-    status: "Manuscript (IEEE Conference Format)",
-    date: "2026",
-    authors: "Sai Abhiram Kolluru, et al.",
-    abstract: "A research-oriented neurosymbolic framework coupling learned models with symbolic reasoning for transparent, explainable Advanced Persistent Threat (APT) detection over system-call telemetry. Integrates temporal-logic-guided reasoning with neural sequence modeling to trace every security detection back to low-level kernel triggers while delivering adversarial robustness and federated model aggregation across enterprise nodes.",
-    tags: ["Neurosymbolic AI", "eBPF Kernel Telemetry", "Temporal Logic", "APT Detection", "Federated Learning"],
-    link: null,
-    icon: <Cpu size={20} />,
-    featured: true
-  },
-  {
-    title: "Breaking the Abstraction Boundary: Abstraction-Collision Scope Laundering in Federated Agent World Models",
-    status: "Manuscript | Research Working Paper",
-    date: "2026",
-    authors: "Sai Abhiram Kolluru, et al.",
-    abstract: "Formulates Abstraction-Collision Scope Laundering (ACSLA), a novel participant-level attack against scope-aware federated agent world models (FEDWORLD) where truthful yet manipulated state transitions are laundered into broad shared model scopes. Designs and proves Context-Aware Scope Sealing (CASS), combining context-integrity cryptographic commitments, conservative alignment, and randomized scope challenges with formal bounds on residual laundering probability.",
-    tags: ["Federated World Models", "Agentic Security", "Scope Laundering (ACSLA)", "Context-Aware Sealing (CASS)"],
-    link: null,
-    icon: <Network size={20} />,
-    featured: false
-  },
-  {
     title: "Quantum-Resistant Zero Trust Audit Architecture for Normally Air-Gapped Industrial Control Systems",
     status: "Research Collaboration (VIT-AP, UNT, TWU)",
     date: "2026",
@@ -48,7 +26,7 @@ const publications = [
     tags: ["Post-Quantum Cryptography", "FALCON-512", "Zero Trust Architecture", "Industrial Control Systems (ICS)", "RAFT Blockchain"],
     link: null,
     icon: <ShieldCheck size={20} />,
-    featured: false
+    featured: true
   }
 ];
 
@@ -65,7 +43,7 @@ export default function Publications() {
         <span className={styles.categoryTag}>Scientific Contributions</span>
         <h2 className={styles.sectionTitle}>Publications &amp; Research</h2>
         <p className={styles.sectionSubtitle}>
-          Peer-reviewed preprints, conference manuscripts, and cryptographic architectures spanning Zero-Trust IAM, eBPF telemetry, and post-quantum security.
+          Peer-reviewed preprints and cryptographic architectures spanning Zero-Trust IAM, hardware attestation, and post-quantum ICS security.
         </p>
       </motion.div>
 

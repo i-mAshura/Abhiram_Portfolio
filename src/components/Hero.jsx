@@ -188,9 +188,9 @@ export default function Hero() {
         </div>
 
         <div className={styles.bentoCard}>
-          <div className={styles.bentoNumber}>4+</div>
-          <div className={styles.bentoTitle}>Research Papers &amp; Preprints</div>
-          <p className={styles.bentoDesc}>FIDO2 threat model analysis (arXiv:2609.03789), eBPF temporal IDS, and post-quantum ICS.</p>
+          <div className={styles.bentoNumber}>Preprints</div>
+          <div className={styles.bentoTitle}>FIDO2 &amp; Zero-Trust Research</div>
+          <p className={styles.bentoDesc}>FIDO2 threat model analysis (arXiv:2609.03789) and post-quantum ICS Zero-Trust architectures.</p>
         </div>
       </div>
     </section>

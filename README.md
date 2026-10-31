@@ -14,8 +14,6 @@ A modern, high-performance executive portfolio built with Next.js 16 (App Router
 - **Zero-Trust Identity & Access Management:** Production deployment of FIDO2 / WebAuthn passwordless authentication, OIDC/SAML federated identity, Open Policy Agent (OPA/Rego) ABAC policies, and AWS least-privilege automation (Boto3/CloudTrail).
 - **Academic Research & Publications:**
   - *"Beyond the Trust Boundary: A Critical Reassessment of the FIDO2 Threat Model"* (arXiv:2609.03789 [cs.CR])
-  - *"NEUROSYMBOLIC-APT: Explainable, Adversarially Robust, Federated APT Detection"*
-  - *"Breaking the Abstraction Boundary: Abstraction-Collision Scope Laundering in Federated Agent World Models"*
   - *"Quantum-Resistant Zero Trust Audit Architecture for Normally Air-Gapped Industrial Control Systems"*
 - **Agentic Security & SIEM Automation:** Designed **ARGUS** (agentic SIEM with autonomous incident containment reducing MTTR by 70%) and **NexusSOC** (Wazuh SIEM + n8n playbooks).
 - **In-Kernel Telemetry & Threat Detection:** In-kernel eBPF temporal intrusion detection (`eBPF_KernelGuard`), SDR spectrum experiments (HackRF/bladeRF for GNSS & DFS), and CAN-bus automotive network security analysis.
