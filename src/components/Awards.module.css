@@ -1,272 +1,234 @@
 .section {
-  padding: 80px 5% 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
+  border-top: 1px solid var(--line);
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.categoryTag {
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--accent-primary);
-  display: block;
-  margin-bottom: 8px;
-}
-
-.sectionTitle {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin-bottom: 12px;
-}
-
-.sectionSubtitle {
-  color: var(--text-secondary);
-  font-size: 1rem;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-.subHeader {
+.subHead {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  color: var(--acid);
 }
 
-.subHeader h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
+.subHead h3 {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-2);
 }
 
-.sectionIcon {
-  color: var(--accent-primary);
+.rule {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
 }
 
-.sectionIconGold {
-  color: var(--accent-amber);
+.count {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  color: var(--text-3);
 }
 
+/* ── Certifications ── */
 .certGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  margin-bottom: 45px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-bottom: clamp(44px, 6vw, 72px);
 }
 
-.certCard {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 16px;
-  padding: 22px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: var(--card-shadow);
+.cert {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.25s ease;
+  background: #070a0f;
+  padding: 22px 20px;
+  transition: background 0.3s ease;
 }
 
-.certCard:hover {
-  border-color: var(--border-hover);
-  box-shadow: var(--glow-subtle), var(--card-shadow);
-  transform: translateY(-2px);
+.cert:hover {
+  background: #0b1118;
 }
 
 .certTop {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 
-.certIssuer {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--accent-primary);
+.issuer {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: var(--text-3);
 }
 
-.certDate {
-  font-size: 0.75rem;
-  color: var(--text-muted);
+.level {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--acid);
+  border: 1px solid rgba(200, 255, 62, 0.25);
+  padding: 2px 6px;
+  white-space: nowrap;
 }
 
-.certTitle {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-primary);
+.cert h4 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--text);
   margin-bottom: 8px;
-  line-height: 1.35;
 }
 
-.certDesc {
-  font-size: 0.86rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: 16px;
-  flex-grow: 1;
+.cert p {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-2);
+  margin-bottom: 18px;
+  flex: 1;
 }
 
-.certBadge {
-  display: inline-flex;
+.certFoot {
+  display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--accent-primary);
-  background: rgba(56, 189, 248, 0.1);
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  align-self: flex-start;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
 }
 
-.splitGrid {
+/* ── Split ── */
+.split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 25px;
+  gap: clamp(28px, 4vw, 56px);
 }
 
-.columnList {
+.rows {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  border-top: 1px solid var(--line);
 }
 
-.honorCard {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 16px;
-  padding: 22px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: var(--card-shadow);
-  position: relative;
-  transition: all 0.25s ease;
+.row {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.25s ease;
 }
 
-.honorCard:hover {
-  border-color: rgba(251, 191, 36, 0.4);
-  box-shadow: 0 0 20px rgba(251, 191, 36, 0.1), var(--card-shadow);
-  transform: translateY(-2px);
-}
-
-.honorBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--accent-amber);
-  background: rgba(251, 191, 36, 0.1);
-  border: 1px solid rgba(251, 191, 36, 0.3);
-  padding: 3px 9px;
-  border-radius: 6px;
-  margin-bottom: 10px;
-}
-
-.honorTitle {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-primary);
+.rowTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
   margin-bottom: 4px;
 }
 
-.honorOrg {
-  font-size: 0.8rem;
+.rowTop h4 {
+  font-size: 0.94rem;
   font-weight: 600;
-  color: var(--accent-amber);
-  display: block;
-  margin-bottom: 8px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--text);
 }
 
-.honorDesc {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.55;
+.rowBadge {
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--acid);
+  white-space: nowrap;
 }
 
-.leadCard {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 16px;
-  padding: 22px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: var(--card-shadow);
-  transition: all 0.25s ease;
+.period {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+  white-space: nowrap;
 }
 
-.leadCard:hover {
-  border-color: var(--border-hover);
-  box-shadow: var(--glow-subtle), var(--card-shadow);
-  transform: translateY(-2px);
+.org {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 7px;
 }
 
-.leadTop {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-  flex-wrap: wrap;
-  gap: 8px;
+.note {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-2);
 }
 
-.leadRole {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--accent-primary);
-}
-
-.leadPeriod {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.leadOrg {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 12px;
-}
-
-.leadPoints {
-  list-style: none;
+.points {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
+  margin-top: 8px;
 }
 
-.leadPoints li {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
+.points li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--text-2);
 }
 
-.pointBullet {
-  color: var(--accent-primary);
-  flex-shrink: 0;
+.points li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--text-3);
 }
 
-@media (max-width: 900px) {
-  .splitGrid {
+.verifyLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 30px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  transition: color 0.2s ease;
+}
+
+.verifyLink:hover {
+  color: var(--acid);
+}
+
+@media (max-width: 880px) {
+  .split {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .certGrid {
+    grid-template-columns: 1fr;
+  }
+  .rowTop {
+    flex-direction: column;
+    gap: 4px;
   }
 }

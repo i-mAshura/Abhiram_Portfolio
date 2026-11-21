@@ -1,257 +1,236 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, Building2, Calendar, MapPin, Award, CheckCircle2, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Briefcase, GraduationCap, MapPin, ArrowUpRight } from 'lucide-react';
+import SectionHead from './SectionHead';
 import styles from './Experience.module.css';
 
 const experiences = [
   {
-    role: "Research Intern – Security R&D",
-    org: "Indian Institute of Technology Madras (IITM) – ASTHRA Lab",
-    type: "Research",
-    location: "Remote",
-    period: "Oct 2026 – Present",
-    tag: "AI for Security",
+    role: 'Research Intern — AI for Security',
+    org: 'Indian Institute of Technology Madras · ASTHRA Lab',
+    location: 'Remote',
+    period: 'Oct 2026 — Present',
+    tag: 'Research',
+    summary:
+      'Building an AI-driven security operations environment that automates monitoring, triage, investigation and response.',
     highlights: [
-      "Conducting security research & development on AI-driven cybersecurity mechanisms and intelligent threat analysis.",
-      "Investigating deep learning and sequence modeling applications for real-time threat detection and automated defense pipelines.",
-      "Collaborating on novel architectures for adaptive resilience against evolving adversary tactics."
+      'Designing AI-agent workflows for security event analysis, alert enrichment, threat correlation and incident prioritisation.',
+      'Developing automation pipelines for log analysis, threat-intelligence enrichment and response orchestration.',
+      'Exploring agent-assisted investigation flows that surface detection context and recommended actions to analysts.',
     ],
-    tech: ["AI for Security", "Threat Detection", "Machine Learning", "Automated Defense", "Security R&D"]
+    tech: ['AI Agents', 'SOC Automation', 'Threat Correlation', 'LLM Workflows'],
   },
   {
-    role: "Security Engineer",
-    org: "Digital Fortress Private Limited",
-    type: "Industry",
-    location: "Vijayawada, India",
-    period: "May 2023 – Present",
-    tag: "IAM & NetSec",
+    role: 'Security Engineer',
+    org: 'Digital Fortress Private Limited',
+    location: 'Vijayawada, India',
+    period: 'May 2023 — Present',
+    tag: 'Industry',
+    summary:
+      'Identity, network perimeter and cloud security engineering for production client environments.',
     highlights: [
-      "Identity & Access Management: Implemented passwordless (FIDO2/WebAuthn) and MFA authentication across client apps using OIDC & SAML; governed access policies, session lifecycles, and RBAC/ABAC.",
-      "Network Perimeter Hardening: Reviewed 200+ firewall rules eliminating ~30% redundant/overly permissive entries; implemented VLAN segmentation and enforced MFA on VPN/remote access.",
-      "Cloud Security Risk Investigation (AWS): Led forensic investigation of a live compromise across 70+ EC2 instances and 40+ S3 buckets; uncovered 3+ months persistence and 1+ TB accessed data; extracted IoCs and hardened security posture.",
-      "Security Automation – ARGUS: Developed an agentic SOC/SIEM platform ingesting 1,500+ security events into Elasticsearch, automated tagging across 50+ MITRE ATT&CK techniques at 90%+ accuracy, cutting incident response time by 70%."
+      'Shipped passwordless FIDO2/WebAuthn and MFA authentication across client applications on OIDC & SAML, governing sessions and RBAC/ABAC policy.',
+      'Reviewed 200+ firewall rules and eliminated ~30% redundant or overly permissive entries; enforced VLAN segmentation and MFA on all remote access.',
+      'Led forensic investigation of a live AWS compromise across 70+ EC2 instances and 40+ S3 buckets, uncovering 3+ months of persistence and 1+ TB of accessed data.',
+      'Built ARGUS, an agentic SOC/SIEM platform ingesting 1,500+ events and auto-tagging 50+ MITRE ATT&CK techniques at 90%+ accuracy — cutting response time by 70%.',
     ],
-    tech: ["Keycloak", "OIDC/SAML", "AWS IAM", "Firewalls", "IDS/IPS", "Wazuh", "Linux", "VPC Flow Logs"]
+    tech: ['Keycloak', 'OIDC / SAML', 'AWS IAM', 'IDS / IPS', 'Wazuh', 'VPC Flow Logs'],
   },
   {
-    role: "Undergraduate Student Researcher / Research Associate",
-    org: "Center of Excellence (AIR), VIT-AP University",
-    type: "Research",
-    location: "Amaravati, Andhra Pradesh",
-    period: "Apr 2025 – Jul 2026",
-    tag: "Kernel & Agentic Security",
+    role: 'Undergraduate Researcher',
+    org: 'Centre of Excellence (AIR), VIT-AP University',
+    location: 'Amaravati, India',
+    period: 'Apr 2025 — Jul 2026',
+    tag: 'Research',
+    summary:
+      'Agentic and neurosymbolic security research spanning kernel telemetry, SOC automation and forensics.',
     highlights: [
-      "Engineered ARGUS agentic SOC/SIEM platform monitoring 4 VMs & endpoints with autonomous remediation agents.",
-      "Developed an eBPF-based intrusion detection framework uniting kernel telemetry with temporal-logic symbolic reasoning for explainable APT detection.",
-      "Collaborated with Andhra Pradesh CID on a blockchain forensics platform using Python, NetworkX, and Neo4j tracing 500+ transactions.",
-      "Built NexusSOC platform integrating Wazuh SIEM, n8n workflow engine, and Catalyst; automated alert triage reducing manual effort by 70% across 10,000+ alerts.",
-      "Conducted RF and automotive security research using HackRF and bladeRF SDRs covering GPS spoofing, Wi-Fi DFS disruption, and CAN-bus attack surfaces."
+      'Engineered ARGUS, monitoring 4 VMs and endpoints with autonomous remediation agents and attack-path reasoning.',
+      'Developed an eBPF intrusion-detection framework pairing in-kernel telemetry with neural sequence models and temporal-logic rules for explainable APT detection.',
+      'Collaborated with AP CID on a blockchain forensics platform tracing 500+ transactions and 200+ wallets via NetworkX and Neo4j.',
+      'Built NexusSOC (Wazuh + n8n + Catalyst), automating triage and cutting manual effort by 70% across 10,000+ alerts.',
+      'Ran RF and automotive security research with HackRF/bladeRF SDRs across GPS spoofing, Wi-Fi DFS and CAN-bus attack surfaces.',
     ],
-    tech: ["eBPF", "Elasticsearch", "Neo4j", "NetworkX", "n8n", "Wazuh", "SDR (HackRF/bladeRF)", "CAN Bus"]
+    tech: ['eBPF', 'Elasticsearch', 'Neo4j', 'n8n', 'Wazuh', 'SDR', 'CAN Bus'],
   },
   {
-    role: "Cyber Forensics Collaborator & Instructor",
-    org: "Andhra Pradesh Police CID (AP CID)",
-    type: "Government / Forensics",
-    location: "Andhra Pradesh, India",
-    period: "Jan 2026 – May 2026",
-    tag: "Forensics & Training",
+    role: 'Cyber Forensics Collaborator & Instructor',
+    org: 'Andhra Pradesh Police CID',
+    location: 'Andhra Pradesh, India',
+    period: 'Jan 2026 — May 2026',
+    tag: 'Government',
+    summary:
+      'Cryptocurrency investigation tooling and practitioner training for law-enforcement officers.',
     highlights: [
-      "Delivered instructional sessions for the AP CID Employee Development Programme (EDP) covering modern cyber forensics and threat analysis.",
-      "Engineered cryptocurrency transaction investigation pipelines using graph analytics (Neo4j/NetworkX) to analyze 200+ wallets and trace suspicious flows across 500+ transactions.",
-      "Streamlined investigation turnaround by 50% via automated blockchain data ingestion and structured forensic report generation."
+      'Delivered instructional sessions for the AP CID Employee Development Programme on cyber forensics and threat analysis.',
+      'Engineered crypto transaction investigation pipelines using graph analytics to trace suspicious flows across 500+ transactions.',
+      'Reduced investigation turnaround by 50% through automated blockchain ingestion and structured forensic reporting.',
     ],
-    tech: ["Blockchain Forensics", "Neo4j", "NetworkX", "Crypto Attribution", "Technical Training"]
+    tech: ['Blockchain Forensics', 'Neo4j', 'NetworkX', 'Crypto Attribution', 'Training'],
   },
   {
-    role: "Freelance Cloud Security Architect",
-    org: "Confidential Clients",
-    type: "Consulting",
-    location: "Remote",
-    period: "Jul 2026 – Aug 2026",
-    tag: "CloudOps & IR",
+    role: 'Freelance Cloud Security Architect',
+    org: 'Confidential Clients',
+    location: 'Remote',
+    period: 'Jul 2026 — Aug 2026',
+    tag: 'Consulting',
+    summary:
+      'Incident response and least-privilege architecture design for compromised cloud estates.',
     highlights: [
-      "Investigated real-time AWS infrastructure compromise across 70+ EC2 instances and 40+ S3 buckets, isolating compromised regions by correlating billing anomalies and VPC flow data.",
-      "Designed least-privilege AWS architectures with centralized CloudTrail/CloudWatch logging, strict IAM condition keys, and automated drift detection."
+      'Isolated compromised AWS regions by correlating billing anomalies with VPC flow data across 70+ EC2 instances.',
+      'Designed least-privilege architectures with centralised CloudTrail/CloudWatch logging, strict IAM condition keys and drift detection.',
     ],
-    tech: ["AWS Security", "Incident Response", "CloudTrail", "Boto3", "Docker", "Linux"]
-  }
+    tech: ['AWS Security', 'Incident Response', 'CloudTrail', 'Boto3', 'Linux'],
+  },
 ];
 
-const educationList = [
+const education = [
   {
-    degree: "B.Tech in Computer Science & Engineering",
-    specialization: "Specialization in Cyber Security",
-    institution: "Vellore Institute of Technology, VIT-AP University",
-    location: "Amaravati, Andhra Pradesh",
-    period: "2023 – 2027 (Expected)",
-    score: "CGPA: 9.44 / 10.0",
-    badge: "Specialization Rank 1 (Department Rank 1)",
+    degree: 'B.Tech — Computer Science & Engineering',
+    org: 'VIT-AP University · Specialization in Cyber Security',
+    location: 'Amaravati, India',
+    period: '2023 — 2027 (Expected)',
+    score: 'CGPA 9.44 / 10.0',
+    badge: 'Specialization Rank 1',
     details: [
-      "Rank 1 across the Cyber Security / Network and Security specialization cohort.",
-      "Relevant Coursework: Cryptography, Network Security, Network Intrusion Detection & Prevention, Cloud Computing (AWS), Design & Analysis of Algorithms, Data Structures, Operating Systems, Web Application Pentesting, Database Management."
-    ]
+      'Ranked first in the Cyber Security / Network & Security specialization cohort.',
+      'Coursework: Cryptography, Network Security, Intrusion Detection & Prevention, Cloud Computing (AWS), Web Application Pentesting, DAA, Operating Systems.',
+    ],
   },
   {
-    degree: "Intermediate (Class XII, MPC)",
-    specialization: "Mathematics, Physics, Chemistry",
-    institution: "SR Junior College",
-    location: "Gollapudi, Andhra Pradesh",
-    period: "2021 – 2023",
-    score: "973 / 1000 (97.3%)",
-    badge: "Merit Distinction",
-    details: ["Strong mathematical grounding in linear algebra, calculus, and discrete mathematics."]
+    degree: 'Intermediate — MPC',
+    org: 'SR Junior College',
+    location: 'Gollapudi, India',
+    period: '2021 — 2023',
+    score: '97.3%',
+    badge: 'Merit Distinction',
+    details: ['Strong mathematical grounding in linear algebra, calculus and discrete mathematics.'],
   },
   {
-    degree: "Secondary School Certificate (Class X)",
-    specialization: "General Sciences & Mathematics",
-    institution: "Sri Chaitanya High School",
-    location: "Ibrahimpatnam, Andhra Pradesh",
-    period: "Graduated 2021",
-    score: "595 / 600 (99.1%)",
-    badge: "State Top Tier",
-    details: ["Outstanding academic record in mathematics, physical sciences, and computer foundations."]
-  }
+    degree: 'Secondary School Certificate',
+    org: 'Sri Chaitanya High School',
+    location: 'Ibrahimpatnam, India',
+    period: 'Graduated 2021',
+    score: '99.1%',
+    badge: 'State Top Tier',
+    details: ['Outstanding record across mathematics, physical sciences and computer foundations.'],
+  },
 ];
 
 export default function Experience() {
-  const [activeTab, setActiveTab] = useState('experience');
+  const [tab, setTab] = useState('work');
 
   return (
-    <section id="experience" className={styles.section}>
-      <motion.div
-        initial={{ opacity: 0, y: 25 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className={styles.header}
-      >
-        <span className={styles.categoryTag}>Background &amp; Milestones</span>
-        <h2 className={styles.sectionTitle}>Experience &amp; Education</h2>
-        <p className={styles.sectionSubtitle}>
-          Professional trajectory spanning industry security engineering, academic AI research at IIT Madras, and academic distinction.
-        </p>
-      </motion.div>
+    <section id="experience" className="section">
+      <div className="container">
+        <div className={styles.topRow}>
+          <SectionHead
+            index="02"
+            label="Trajectory"
+            title={
+              <>
+                Where I&apos;ve operated<span className="acid">.</span>
+              </>
+            }
+            sub="Industry security engineering, academic research at IIT Madras, and government forensics collaborations — the short version of how I got here."
+          />
 
-      <div className={styles.tabContainer}>
-        <button
-          onClick={() => setActiveTab('experience')}
-          className={`${styles.tabBtn} ${activeTab === 'experience' ? styles.tabActive : ''}`}
-        >
-          <Briefcase size={16} /> Experience &amp; Research ({experiences.length})
-        </button>
-        <button
-          onClick={() => setActiveTab('education')}
-          className={`${styles.tabBtn} ${activeTab === 'education' ? styles.tabActive : ''}`}
-        >
-          <GraduationCap size={16} /> Education &amp; Academics ({educationList.length})
-        </button>
-      </div>
-
-      <div className={styles.timeline}>
-        {activeTab === 'experience' ? (
-          experiences.map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className={styles.timelineItem}
+          <div className={styles.tabs} role="tablist" aria-label="Trajectory">
+            <button
+              role="tab"
+              aria-selected={tab === 'work'}
+              onClick={() => setTab('work')}
+              className={`${styles.tab} ${tab === 'work' ? styles.tabActive : ''}`}
             >
-              <div className={styles.timelineMarker}>
-                <div className={styles.markerDot} />
-                <div className={styles.markerLine} />
-              </div>
-
-              <div className={styles.card}>
-                <div className={styles.cardTop}>
-                  <div>
-                    <span className={styles.badge}>{item.tag}</span>
-                    <h3 className={styles.roleTitle}>{item.role}</h3>
-                    <div className={styles.orgRow}>
-                      <Building2 size={16} className={styles.metaIcon} />
-                      <span className={styles.orgName}>{item.org}</span>
-                    </div>
-                  </div>
-                  <div className={styles.metaRight}>
-                    <div className={styles.metaPill}>
-                      <Calendar size={13} /> {item.period}
-                    </div>
-                    <div className={styles.metaPill}>
-                      <MapPin size={13} /> {item.location}
-                    </div>
-                  </div>
-                </div>
-
-                <ul className={styles.highlightList}>
-                  {item.highlights.map((point, pIdx) => (
-                    <li key={pIdx} className={styles.highlightItem}>
-                      <ChevronRight size={15} className={styles.bulletIcon} />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className={styles.techPills}>
-                  {item.tech.map((t, tIdx) => (
-                    <span key={tIdx} className={styles.techPill}>{t}</span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))
-        ) : (
-          educationList.map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className={styles.timelineItem}
+              <Briefcase size={13} /> Experience <span>{experiences.length}</span>
+            </button>
+            <button
+              role="tab"
+              aria-selected={tab === 'edu'}
+              onClick={() => setTab('edu')}
+              className={`${styles.tab} ${tab === 'edu' ? styles.tabActive : ''}`}
             >
-              <div className={styles.timelineMarker}>
-                <div className={styles.markerDot} />
-                <div className={styles.markerLine} />
-              </div>
+              <GraduationCap size={13} /> Education <span>{education.length}</span>
+            </button>
+          </div>
+        </div>
 
-              <div className={styles.card}>
-                <div className={styles.cardTop}>
-                  <div>
-                    <span className={styles.badgeGold}>{item.badge}</span>
-                    <h3 className={styles.roleTitle}>{item.degree}</h3>
-                    <div className={styles.orgRow}>
-                      <Building2 size={16} className={styles.metaIcon} />
-                      <span className={styles.orgName}>{item.institution}</span>
-                      <span className={styles.dotSeparator}>•</span>
-                      <span className={styles.specialization}>{item.specialization}</span>
-                    </div>
+        <div className={styles.panel}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={tab}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            >
+              {(tab === 'work' ? experiences : education).map((item, idx) => (
+                <article key={`${item.role || item.degree}-${idx}`} className={styles.row}>
+                  <div className={styles.rail}>
+                    <span className={styles.railIndex}>
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
+                    <span className={styles.railLine} />
                   </div>
-                  <div className={styles.metaRight}>
-                    <div className={styles.scorePill}>
-                      <Award size={14} /> {item.score}
-                    </div>
-                    <div className={styles.metaPill}>
-                      <Calendar size={13} /> {item.period}
-                    </div>
-                  </div>
-                </div>
 
-                <ul className={styles.highlightList}>
-                  {item.details.map((point, pIdx) => (
-                    <li key={pIdx} className={styles.highlightItem}>
-                      <CheckCircle2 size={15} className={styles.bulletCheck} />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  <div className={styles.body}>
+                    <div className={styles.rowHead}>
+                      <div className={styles.rowTitleBlock}>
+                        <span className={styles.tag}>
+                          {item.tag || item.badge}
+                        </span>
+                        <h3 className={styles.role}>{item.role || item.degree}</h3>
+                        <p className={styles.org}>{item.org}</p>
+                      </div>
+
+                      <div className={styles.rowMeta}>
+                        <span className={styles.period}>{item.period}</span>
+                        <span className={styles.place}>
+                          <MapPin size={11} /> {item.location}
+                        </span>
+                        {item.score ? (
+                          <span className={styles.score}>{item.score}</span>
+                        ) : null}
+                      </div>
+                    </div>
+
+                    {item.summary ? (
+                      <p className={styles.summary}>{item.summary}</p>
+                    ) : null}
+
+                    <ul className={styles.bullets}>
+                      {(item.highlights || item.details).map((point, i) => (
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
+
+                    {item.tech ? (
+                      <div className={styles.techRow}>
+                        {item.tech.map((t) => (
+                          <span key={t} className={styles.tech}>
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                </article>
+              ))}
             </motion.div>
-          ))
-        )}
+          </AnimatePresence>
+        </div>
+
+        <a
+          href="https://github.com/i-mAshura"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.repoLink}
+        >
+          Full work history &amp; repositories
+          <ArrowUpRight size={14} />
+        </a>
       </div>
     </section>
   );

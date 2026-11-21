@@ -5,7 +5,7 @@
 🎓 **VIT-AP University** — *B.Tech CSE (Cyber Security), Specialization Rank 1 (CGPA: 9.44 / 10.0)*  
 📜 **Certifications:** AWS Certified Security – Specialty & Solutions Architect, Google Cybersecurity, CNSP
 
-A modern, high-performance executive portfolio built with Next.js 16 (App Router, Turbopack), Framer Motion, and modern UI styling. Showcases production systems, peer-reviewed publications, in-kernel eBPF telemetry, Zero-Trust IAM architectures, and competitive security credentials.
+A dark "operator console" portfolio built with Next.js 16 (App Router, Turbopack), Framer Motion, and a custom acid-lime design system. Showcases production systems, peer-reviewed publications, in-kernel eBPF telemetry, Zero-Trust IAM architectures, and competitive security credentials.
 
 ---
 
@@ -23,7 +23,7 @@ A modern, high-performance executive portfolio built with Next.js 16 (App Router
 ## 🛠️ Technology Stack
 
 - **Framework:** [Next.js](https://nextjs.org/) (App Router, Turbopack)
-- **Styling:** CSS Modules with modern executive dark/light themes & design tokens
+- **Styling:** CSS Modules with a custom dark design system (acid-lime signal palette, mono telemetry type, hairline grids)
 - **Animations:** [Framer Motion](https://www.framer.com/motion/)
 - **Icons:** [Lucide React](https://lucide.dev/)
 - **Deployment:** Vercel

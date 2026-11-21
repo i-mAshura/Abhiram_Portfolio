@@ -2,32 +2,49 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, Phone, MapPin, Download, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Download, Send, CheckCircle2, ArrowUpRight } from 'lucide-react';
+import SectionHead from './SectionHead';
 import styles from './Contact.module.css';
 
+const channels = [
+  {
+    icon: <Mail size={15} />,
+    label: 'Email',
+    value: 'kollurusaiabhiram2005@gmail.com',
+    href: 'mailto:kollurusaiabhiram2005@gmail.com',
+  },
+  {
+    icon: <Phone size={15} />,
+    label: 'Phone',
+    value: '+91 88856 67817',
+    href: 'tel:+918885667817',
+  },
+  {
+    icon: <MapPin size={15} />,
+    label: 'Based in',
+    value: 'Vijayawada / Amaravati, India',
+    href: null,
+  },
+];
+
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle');
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus('loading');
 
     try {
-      const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
+      const subject = encodeURIComponent(`Portfolio inquiry — ${form.name}`);
       const body = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+        `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
       );
-
-      // Trigger user's mail client with prefilled details
-      window.location.href = `mailto:kollurusaiabhiram513@gmail.com?subject=${subject}&body=${body}`;
-
+      window.location.href = `mailto:kollurusaiabhiram2005@gmail.com?subject=${subject}&body=${body}`;
       setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      setForm({ name: '', email: '', message: '' });
       setTimeout(() => setStatus('idle'), 6000);
     } catch (err) {
       setStatus('error');
@@ -35,142 +52,141 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className={styles.contactSection}>
-      <motion.div 
-        initial={{ opacity: 0, y: 25 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className={styles.header}
-      >
-        <span className={styles.categoryTag}>Get in Touch</span>
-        <h2 className={styles.sectionTitle}>Contact &amp; Connect</h2>
-        <p className={styles.sectionSubtitle}>
-          Open to research collaborations, security engineering roles, consulting engagements, or technical inquiries.
-        </p>
-      </motion.div>
+    <section id="contact" className={`section ${styles.section}`}>
+      <div className="container">
+        <div className={styles.grid}>
+          <div className={styles.left}>
+            <SectionHead
+              index="07"
+              label="Contact"
+              title={
+                <>
+                  Got a system worth
+                  <br />
+                  breaking<span className="acid">?</span>
+                </>
+              }
+              sub="Open to security engineering roles, research collaborations and consulting engagements. I reply fast — usually within a day."
+            />
 
-      <div className={styles.container}>
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className={styles.info}
-        >
-          <h3>Let&apos;s Connect</h3>
-          <p>
-            Whether you are looking to collaborate on security research, explore Zero-Trust IAM architectures, discuss offensive security engagements, or review my technical credentials, feel free to reach out directly.
-          </p>
-
-          <div className={styles.channelsList}>
-            <a href="mailto:kollurusaiabhiram513@gmail.com" className={styles.channelItem}>
-              <Mail size={18} className={styles.channelIcon} />
-              <div>
-                <span className={styles.channelLabel}>Primary Email</span>
-                <span className={styles.channelVal}>kollurusaiabhiram513@gmail.com</span>
-              </div>
-            </a>
-
-            <a href="mailto:kollurusaiabhiram2005@gmail.com" className={styles.channelItem}>
-              <Mail size={18} className={styles.channelIcon} />
-              <div>
-                <span className={styles.channelLabel}>Secondary Email</span>
-                <span className={styles.channelVal}>kollurusaiabhiram2005@gmail.com</span>
-              </div>
-            </a>
-
-            <a href="tel:+918885667817" className={styles.channelItem}>
-              <Phone size={18} className={styles.channelIcon} />
-              <div>
-                <span className={styles.channelLabel}>Direct Phone</span>
-                <span className={styles.channelVal}>+91 8885667817</span>
-              </div>
-            </a>
-
-            <div className={styles.channelItem}>
-              <MapPin size={18} className={styles.channelIcon} />
-              <div>
-                <span className={styles.channelLabel}>Location</span>
-                <span className={styles.channelVal}>Vijayawada / Amaravati, Andhra Pradesh, India</span>
-              </div>
+            <div className={styles.channels}>
+              {channels.map((c) =>
+                c.href ? (
+                  <a key={c.label} href={c.href} className={styles.channel}>
+                    <span className={styles.channelIcon}>{c.icon}</span>
+                    <span className={styles.channelText}>
+                      <small>{c.label}</small>
+                      <strong>{c.value}</strong>
+                    </span>
+                    <ArrowUpRight size={14} className={styles.channelArrow} />
+                  </a>
+                ) : (
+                  <div key={c.label} className={styles.channel}>
+                    <span className={styles.channelIcon}>{c.icon}</span>
+                    <span className={styles.channelText}>
+                      <small>{c.label}</small>
+                      <strong>{c.value}</strong>
+                    </span>
+                  </div>
+                )
+              )}
             </div>
-          </div>
 
-          <div className={styles.quickResumeBox}>
             <a
               href="/K_SAI_ABHIRAM.pdf"
               download="K_SAI_ABHIRAM.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.contactResumeBtn}
+              className={styles.resume}
             >
-              <Download size={16} /> Download Latest Resume (PDF)
+              <Download size={15} />
+              Download resume — PDF
             </a>
           </div>
-        </motion.div>
 
-        <motion.form 
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className={styles.form} 
-          onSubmit={handleSubmit}
-        >
-          <div className={styles.inputGroup}>
-            <input 
-              type="text" 
-              name="name" 
-              placeholder="Your Name or Organization" 
-              value={formData.name} 
-              onChange={handleChange} 
-              required 
-              className={styles.input}
-            />
-          </div>
-          <div className={styles.inputGroup}>
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="Your Email Address" 
-              value={formData.email} 
-              onChange={handleChange} 
-              required 
-              className={styles.input}
-            />
-          </div>
-          <div className={styles.inputGroup}>
-            <textarea 
-              name="message" 
-              placeholder="Your Message, Inquiry, or Project Scope" 
-              value={formData.message} 
-              onChange={handleChange} 
-              required 
-              className={styles.textarea}
-              rows={5}
-            ></textarea>
-          </div>
-          
-          <button 
-            type="submit" 
-            className={styles.submitBtn}
-            disabled={status === 'loading'}
+          <motion.form
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className={styles.form}
+            onSubmit={handleSubmit}
           >
-            {status === 'loading' ? 'Preparing Transmission...' : <><Send size={16} /> Send Message</>}
-          </button>
+            <div className={styles.formTop}>
+              <span className={styles.dots}>
+                <i />
+                <i />
+                <i />
+              </span>
+              <span>new_message.sh</span>
+              <span className={styles.formMode}>POST</span>
+            </div>
 
-          {status === 'success' && (
-            <div className={styles.successMsg}>
-              <CheckCircle size={16} /> Email client opened with your pre-filled inquiry.
+            <div className={styles.field}>
+              <label htmlFor="name">name</label>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="your name or organisation"
+                value={form.name}
+                onChange={handleChange}
+                required
+              />
             </div>
-          )}
-          {status === 'error' && (
-            <div className={styles.errorMsg}>
-              Could not open email client automatically. Please email me at kollurusaiabhiram513@gmail.com.
+
+            <div className={styles.field}>
+              <label htmlFor="email">email</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="you@company.com"
+                value={form.email}
+                onChange={handleChange}
+                required
+              />
             </div>
-          )}
-        </motion.form>
+
+            <div className={styles.field}>
+              <label htmlFor="message">message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows={5}
+                placeholder="scope, timeline, or the problem you want solved"
+                value={form.message}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <button type="submit" className={styles.submit} disabled={status === 'loading'}>
+              {status === 'loading' ? (
+                'Opening channel…'
+              ) : (
+                <>
+                  Transmit message <Send size={14} />
+                </>
+              )}
+            </button>
+
+            {status === 'success' && (
+              <p className={styles.success}>
+                <CheckCircle2 size={14} /> Email client opened with your message pre-filled.
+              </p>
+            )}
+            {status === 'error' && (
+              <p className={styles.error}>
+                Couldn&apos;t open your mail client — email kollurusaiabhiram2005@gmail.com directly.
+              </p>
+            )}
+
+            <p className={styles.note}>
+              Messages are sent straight to my inbox — no form service, no tracking.
+            </p>
+          </motion.form>
+        </div>
       </div>
     </section>
   );

@@ -1,48 +1,84 @@
-import { Inter, Fira_Code } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import ParticlesBackground from "@/components/ParticlesBackground";
+import Backdrop from "@/components/Backdrop";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const firaCode = Fira_Code({ subsets: ["latin"], variable: "--font-fira-code" });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-space",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-mono-jb",
+  display: "swap",
+});
+
+const siteUrl = "https://master.abhiram.tech";
 
 export const metadata = {
-  title: "Sai Abhiram Kolluru | Security Engineer, Zero-Trust IAM & AI Security Researcher",
-  description: "Official portfolio of Sai Abhiram Kolluru — Security Engineer at Digital Fortress, Research Intern at IIT Madras ASTHRA Lab, Specialization Rank 1 (VIT-AP, 9.44 CGPA), AWS Certified Security Specialty.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Sai Abhiram Kolluru — Security Engineer & AI Security Researcher",
+    template: "%s — Sai Abhiram Kolluru",
+  },
+  description:
+    "Security engineer and AI security researcher building zero-trust identity, in-kernel eBPF telemetry, and agentic SOC systems. AWS Certified Security — Specialty. Research intern at IIT Madras, ASTHRA Lab.",
   keywords: [
     "Sai Abhiram Kolluru",
     "Security Engineer",
-    "IAM",
+    "AI Security Researcher",
     "Zero Trust",
     "FIDO2",
+    "WebAuthn",
     "eBPF",
-    "IIT Madras ASTHRA Lab",
-    "Digital Fortress",
-    "AWS Certified Security Specialty",
     "Kernel Telemetry",
-    "SIEM SOAR",
-    "ARGUS"
+    "SIEM",
+    "SOAR",
+    "ARGUS",
+    "MITRE ATT&CK",
+    "AWS Security Specialty",
+    "IIT Madras ASTHRA Lab",
+    "VIT-AP",
   ],
-  authors: [{ name: "Sai Abhiram Kolluru" }],
+  authors: [{ name: "Sai Abhiram Kolluru", url: siteUrl }],
+  creator: "Sai Abhiram Kolluru",
   openGraph: {
-    title: "Sai Abhiram Kolluru | Security Engineer & AI Security Researcher",
-    description: "Security Engineer & Researcher specializing in Zero-Trust IAM, eBPF kernel telemetry, network perimeter defense, and autonomous SIEM automation.",
-    url: "https://github.com/i-mAshura/Abhiram_Portfolio",
-    siteName: "Sai Abhiram Kolluru Portfolio",
-    type: "website"
-  }
+    type: "website",
+    url: siteUrl,
+    siteName: "Sai Abhiram Kolluru",
+    title: "Sai Abhiram Kolluru — Security Engineer & AI Security Researcher",
+    description:
+      "Zero-trust IAM, eBPF kernel telemetry, agentic SOC automation, and security research. Building systems that find what humans miss.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sai Abhiram Kolluru — Security Engineer & AI Security Researcher",
+    description:
+      "Zero-trust IAM, eBPF kernel telemetry, agentic SOC automation, and security research.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="dark">
-      <body className={`${inter.variable} ${firaCode.variable}`}>
-        <ThemeProvider>
-          <ParticlesBackground />
-          {children}
-        </ThemeProvider>
+      <body
+        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} grain`}
+      >
+        <Backdrop />
+        {children}
         <Analytics />
         <SpeedInsights />
       </body>

@@ -2,136 +2,177 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Network, Activity, Cloud, Cpu, Radio } from 'lucide-react';
+import {
+  ShieldCheck,
+  Network,
+  Activity,
+  Cloud,
+  Cpu,
+  Radio,
+} from 'lucide-react';
+import SectionHead from './SectionHead';
 import styles from './Skills.module.css';
 
-const skillCategories = [
+const categories = [
   {
-    title: "Identity & Access Management (IAM)",
-    icon: <ShieldCheck size={20} />,
-    skills: [
-      "Keycloak SSO",
-      "OIDC & SAML 2.0",
-      "FIDO2 / WebAuthn",
-      "OPA / Rego (ABAC)",
-      "Role-Based Access (RBAC)",
-      "Least Privilege",
-      "Secrets Governance",
-      "X.509 & PKI Lifecycle"
-    ]
+    index: '01',
+    title: 'Identity & Access',
+    icon: <ShieldCheck size={16} />,
+    items: [
+      'Keycloak SSO',
+      'OIDC & SAML 2.0',
+      'FIDO2 / WebAuthn',
+      'OPA / Rego ABAC',
+      'RBAC & least privilege',
+      'Secrets governance',
+      'X.509 / PKI lifecycle',
+    ],
   },
   {
-    title: "Network Security & Defense",
-    icon: <Network size={20} />,
-    skills: [
-      "Firewall Rule-Base Review",
-      "VLAN Segmentation",
-      "Suricata & Snort IDS/IPS",
-      "Wireshark Deep Packet Analysis",
-      "VPN & Remote MFA",
-      "TCP/IP & Routing",
-      "Perimeter Hardening",
-      "Network Pentesting"
-    ]
+    index: '02',
+    title: 'Network Defense',
+    icon: <Network size={16} />,
+    items: [
+      'Firewall rule review',
+      'VLAN segmentation',
+      'Suricata & Snort',
+      'Wireshark packet analysis',
+      'VPN & remote MFA',
+      'TCP/IP & routing',
+      'Perimeter hardening',
+    ],
   },
   {
-    title: "Security Operations & Threat Intel",
-    icon: <Activity size={20} />,
-    skills: [
-      "SIEM (Wazuh, Splunk, Elastic)",
-      "ARGUS Agentic SOC Platform",
-      "MITRE ATT&CK Auto-Mapping",
-      "SOAR Playbooks (n8n, Catalyst)",
-      "Alert Triage & IOC Extraction",
-      "Incident Containment",
-      "Server Log Forensics",
-      "Vulnerability Scoring"
-    ]
+    index: '03',
+    title: 'Security Operations',
+    icon: <Activity size={16} />,
+    items: [
+      'SIEM — Wazuh, Splunk, Elastic',
+      'ARGUS agentic SOC',
+      'MITRE ATT&CK mapping',
+      'SOAR — n8n, Catalyst',
+      'Alert triage & IOC extraction',
+      'Incident containment',
+      'Log forensics',
+    ],
   },
   {
-    title: "Cloud & DevSecOps Infrastructure",
-    icon: <Cloud size={20} />,
-    skills: [
-      "AWS (IAM, VPC, S3, EC2)",
-      "CloudTrail Forensic Ingestion",
-      "Terraform (IaC)",
-      "Python SDK (Boto3) Auditing",
-      "Docker & Linux Admin",
-      "Security Groups & Flow Logs",
-      "CI/CD Security Automation",
-      "System Recovery & Hardening"
-    ]
+    index: '04',
+    title: 'Cloud & DevSecOps',
+    icon: <Cloud size={16} />,
+    items: [
+      'AWS IAM, VPC, S3, EC2',
+      'CloudTrail forensics',
+      'Terraform IaC',
+      'Boto3 auditing',
+      'Docker & Linux admin',
+      'Security groups & flow logs',
+      'CI/CD security automation',
+    ],
   },
   {
-    title: "AI & In-Kernel Security Telemetry",
-    icon: <Cpu size={20} />,
-    skills: [
-      "eBPF Kernel Probes",
-      "Neurosymbolic Threat Models",
-      "PyTorch & Sequence Modeling",
-      "Transformers & NLP Masking",
-      "Swin Transformer & Medical AI",
-      "Explainable AI (XAI)",
-      "Neo4j & NetworkX Graphs",
-      "Federated Model Defenses"
-    ]
+    index: '05',
+    title: 'AI / Kernel Telemetry',
+    icon: <Cpu size={16} />,
+    items: [
+      'eBPF kernel probes',
+      'Neurosymbolic threat models',
+      'PyTorch & sequence models',
+      'Transformers / NLP masking',
+      'Explainable AI (XAI)',
+      'Neo4j & NetworkX graphs',
+      'Federated model defenses',
+    ],
   },
   {
-    title: "Hardware, RF & Automotive Security",
-    icon: <Radio size={20} />,
-    skills: [
-      "CAN-bus Vehicle Exploitation",
-      "ICSim ECU Security",
-      "Software-Defined Radio (SDR)",
-      "HackRF & bladeRF Systems",
-      "GPS Spoofing Resilience",
-      "Wi-Fi DFS Spectrum Transition",
-      "SDR Modulation & Signals",
-      "Post-Quantum Cryptography"
-    ]
-  }
+    index: '06',
+    title: 'RF & Automotive',
+    icon: <Radio size={16} />,
+    items: [
+      'CAN-bus exploitation',
+      'ICSim ECU security',
+      'HackRF & bladeRF',
+      'GPS spoofing resilience',
+      'Wi-Fi DFS spectrum',
+      'SDR modulation',
+      'Post-quantum cryptography',
+    ],
+  },
+];
+
+const toolbelt = [
+  'Python',
+  'Bash',
+  'C / C++',
+  'Java',
+  'JavaScript',
+  'SQL',
+  'Linux',
+  'Nmap',
+  'Metasploit',
+  'Burp Suite',
+  'Wireshark',
+  'Splunk',
+  'Wazuh',
+  'Suricata',
+  'Snort',
+  'Docker',
+  'Terraform',
+  'Git',
+  'n8n',
+  'Neo4j',
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className={styles.skillsSection}>
-      <motion.div 
-        initial={{ opacity: 0, y: 25 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className={styles.header}
-      >
-        <span className={styles.categoryTag}>Technical Arsenal</span>
-        <h2 className={styles.sectionTitle}>Skills &amp; Competencies</h2>
-        <p className={styles.sectionSubtitle}>
-          Specialized technical competencies across Zero-Trust identity platforms, production cloud infrastructure, in-kernel telemetry, and security automation.
-        </p>
-      </motion.div>
+    <section id="skills" className={`section ${styles.section}`}>
+      <div className="container">
+        <SectionHead
+          index="05"
+          label="Arsenal"
+          title={
+            <>
+              The stack I operate in<span className="acid">.</span>
+            </>
+          }
+          sub="Grouped by the problem being solved, not by the buzzword being marketed."
+        />
 
-      <div className={styles.grid}>
-        {skillCategories.map((category, index) => (
-          <motion.div 
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.06 }}
-            className={styles.card}
-          >
-            <div className={styles.cardHeader}>
-              <span className={styles.icon}>{category.icon}</span>
-              <h3>{category.title}</h3>
-            </div>
-            <ul className={styles.skillList}>
-              {category.skills.map((skill, i) => (
-                <li key={i} className={styles.skillItem}>
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        ))}
+        <div className={styles.grid}>
+          {categories.map((cat, i) => (
+            <motion.div
+              key={cat.title}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+              className={styles.card}
+            >
+              <div className={styles.cardHead}>
+                <span className={styles.icon}>{cat.icon}</span>
+                <h3>{cat.title}</h3>
+                <span className={styles.index}>{cat.index}</span>
+              </div>
+              <ul>
+                {cat.items.map((item) => (
+                  <li key={item}>
+                    <span className={styles.bullet} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className={styles.toolbelt}>
+          <span className={styles.toolbeltLabel}>Toolbelt</span>
+          <div className={styles.toolList}>
+            {toolbelt.map((tool) => (
+              <span key={tool}>{tool}</span>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
