@@ -170,6 +170,32 @@
   flex-shrink: 0;
 }
 
+.termBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 13px;
+  border: 1px solid var(--line-strong);
+  background: rgba(233, 239, 242, 0.02);
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.termBtn:hover {
+  color: var(--acid);
+  border-color: rgba(200, 255, 62, 0.4);
+  background: rgba(200, 255, 62, 0.05);
+}
+
+.termLabel {
+  line-height: 1;
+}
+
 .hire {
   display: inline-flex;
   align-items: center;
@@ -284,6 +310,22 @@
   gap: 14px;
 }
 
+.drawerGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
 .drawerCta {
   display: inline-flex;
   justify-content: center;
@@ -320,6 +362,15 @@
   }
   .brandRole {
     display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .termLabel {
+    display: none;
+  }
+  .termBtn {
+    padding: 9px 10px;
   }
 }
 

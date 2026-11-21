@@ -7,6 +7,8 @@
 
 A dark "operator console" portfolio built with Next.js 16 (App Router, Turbopack), Framer Motion, and a custom acid-lime design system. Showcases production systems, peer-reviewed publications, in-kernel eBPF telemetry, Zero-Trust IAM architectures, and competitive security credentials.
 
+Ships two interfaces over the same content: the UI, and a terminal mode (toggle in the navbar, `Ctrl + \`` anytime) with a virtual filesystem, command history and tab completion — `help` to start, `gui` to return.
+
 ---
 
 ## ⚡ Core Domains & Research Focus

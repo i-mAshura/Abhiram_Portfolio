@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Terminal } from 'lucide-react';
 import Logo from './Logo';
 import styles from './Navbar.module.css';
 
@@ -14,7 +14,7 @@ const navItems = [
   { label: 'Credentials', href: '#awards', index: '06' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ onOpenTerminal }) {
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
   const [open, setOpen] = useState(false);
@@ -92,6 +92,17 @@ export default function Navbar() {
           </nav>
 
           <div className={styles.right}>
+            <button
+              type="button"
+              className={styles.termBtn}
+              onClick={onOpenTerminal}
+              title="Terminal mode (Ctrl + `)"
+              aria-label="Switch to terminal mode"
+            >
+              <Terminal size={14} />
+              <span className={styles.termLabel}>Terminal</span>
+            </button>
+
             <a href="#contact" className={styles.hire}>
               Open channel <ArrowUpRight size={14} strokeWidth={2.2} />
             </a>
@@ -132,6 +143,16 @@ export default function Navbar() {
           </a>
         </nav>
         <div className={styles.drawerFoot}>
+          <button
+            type="button"
+            className={styles.drawerGhost}
+            onClick={() => {
+              setOpen(false);
+              onOpenTerminal?.();
+            }}
+          >
+            <Terminal size={14} /> Terminal mode
+          </button>
           <a href="/K_SAI_ABHIRAM.pdf" download="K_SAI_ABHIRAM.pdf" className={styles.drawerCta}>
             Download Resume — PDF
           </a>
