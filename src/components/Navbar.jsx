@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
+import Logo from './Logo';
 import styles from './Navbar.module.css';
 
 const navItems = [
@@ -68,7 +69,9 @@ export default function Navbar() {
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
         <div className={`container ${styles.bar}`}>
           <a href="#about" className={styles.brand} aria-label="Sai Abhiram Kolluru — home">
-            <span className={styles.mark}>AK</span>
+            <span className={styles.mark}>
+              <Logo size={24} />
+            </span>
             <span className={styles.brandText}>
               <span className={styles.brandName}>SAI ABHIRAM</span>
               <span className={styles.brandRole}>SECURITY ENGINEER</span>
