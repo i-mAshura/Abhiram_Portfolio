@@ -185,6 +185,7 @@
   display: inline-flex;
   gap: 1px;
   flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .user {

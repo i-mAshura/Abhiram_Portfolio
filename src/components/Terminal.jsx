@@ -50,6 +50,17 @@ function listNode(node, tone = 'out') {
   );
 }
 
+function collectFiles(node, prefix = [], out = []) {
+  Object.entries(node.children).forEach(([name, child]) => {
+    if (child.type === 'dir') {
+      collectFiles(child, [...prefix, name], out);
+    } else {
+      out.push({ name, parts: [...prefix, name], node: child });
+    }
+  });
+  return out;
+}
+
 function treeLines(node, prefix = '', depth = 0) {
   const entries = Object.entries(node.children);
   const out = [];
@@ -115,8 +126,29 @@ export default function Terminal({ onExit }) {
       const catFile = (target) => {
         const parts = normalize(cwd, target);
         const node = nodeAt(parts);
+
         if (!node) {
+          const base = target.split('/').pop().toLowerCase();
+          const stem = base.replace(/\.[^.]+$/, '');
+          const matches = collectFiles(fileSystem).filter((f) => {
+            const name = f.name.toLowerCase();
+            return name === base || name.replace(/\.[^.]+$/, '') === stem;
+          });
+
+          if (matches.length === 1) {
+            out.push(line(`→ resolved ${matches[0].parts.join('/')}`, 'dim'));
+            matches[0].node.content.split('\n').forEach((t) => out.push(line(t, 'out')));
+            return;
+          }
+
+          if (matches.length > 1) {
+            out.push(line(`cat: ${target}: ambiguous — try one of:`, 'warn'));
+            matches.forEach((m) => out.push(line(`  cat ${m.parts.join('/')}`, 'cyan')));
+            return;
+          }
+
           out.push(line(`cat: ${target}: No such file or directory`, 'warn'));
+          out.push(line("tip: 'ls <dir>' to browse, or 'projects' to see what exists.", 'dim'));
           return;
         }
         if (node.type === 'dir') {
@@ -204,11 +236,19 @@ export default function Terminal({ onExit }) {
           break;
 
         case 'projects':
-        case 'systems':
+        case 'systems': {
+          const systems = fileSystem.children.systems.children;
           out.push(line('/home/abhiram/systems', 'head'));
           out.push(...listNode(fileSystem.children.systems));
-          out.push(line('tip: cat systems/argus.md', 'dim'));
+          out.push(line(''));
+          out.push(
+            line(
+              `${Object.keys(systems).length} systems · cat systems/<name>.md for stack, status and impact`,
+              'dim'
+            )
+          );
           break;
+        }
 
         case 'research':
           out.push(line('/home/abhiram/research', 'head'));

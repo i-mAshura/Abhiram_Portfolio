@@ -24,8 +24,7 @@ const projects = [
     description:
       'Agentic SOC/SIEM/SOAR architecture that ingests 1,500+ events into Elasticsearch, auto-tags 50+ MITRE ATT&CK techniques at 90%+ accuracy, and deploys response agents that isolate hosts and remediate incidents — cutting MTTR by 70%.',
     tech: ['Python', 'Elasticsearch', 'Docker', 'MITRE ATT&CK', 'AI Agents'],
-    link: null,
-    private: true,
+    link: 'https://github.com/i-mAshura/ARGUS',
   },
   {
     id: 'kernelguard',
