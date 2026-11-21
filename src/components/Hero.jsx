@@ -226,7 +226,7 @@ export default function Hero() {
             </div>
             <div>
               <dt>Lab</dt>
-              <dd>IIT Madras — ASTHRA</dd>
+              <dd>AIR — VIT-AP University</dd>
             </div>
             <div>
               <dt>Focus</dt>

@@ -134,7 +134,7 @@ export default function Experience() {
                 Where I&apos;ve operated<span className="acid">.</span>
               </>
             }
-            sub="Industry security engineering, academic research at IIT Madras, and government forensics collaborations — the short version of how I got here."
+            sub="Industry security engineering, academic research, and government forensics collaborations — the short version of how I got here."
           />
 
           <div className={styles.tabs} role="tablist" aria-label="Trajectory">

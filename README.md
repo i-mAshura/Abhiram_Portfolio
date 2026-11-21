@@ -1,7 +1,7 @@
 # Sai Abhiram Kolluru — Professional Portfolio
 
 🛡️ **Security Engineer** @ Digital Fortress  
-🔬 **Research Intern** @ IIT Madras (ASTHRA Lab) — *AI for Security*  
+🔬 **Undergraduate Researcher** @ AIR, VIT-AP University — *Agentic & Kernel Security*  
 🎓 **VIT-AP University** — *B.Tech CSE (Cyber Security), Specialization Rank 1 (CGPA: 9.44 / 10.0)*  
 📜 **Certifications:** AWS Certified Security – Specialty & Solutions Architect, Google Cybersecurity, CNSP
 

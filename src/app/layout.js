@@ -33,7 +33,7 @@ export const metadata = {
     template: "%s — Sai Abhiram Kolluru",
   },
   description:
-    "Security engineer and AI security researcher building zero-trust identity, in-kernel eBPF telemetry, and agentic SOC systems. AWS Certified Security — Specialty. Research intern at IIT Madras, ASTHRA Lab.",
+    "Security engineer and AI security researcher building zero-trust identity, in-kernel eBPF telemetry, and agentic SOC systems. Researcher at AIR, VIT-AP University. AWS Certified Security — Specialty.",
   keywords: [
     "Sai Abhiram Kolluru",
     "Security Engineer",
